@@ -20,6 +20,7 @@ type WeatherData = {
 function Weather() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [weatherData, setWeatherData] = useState<WeatherData | boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     handleSearch("Hanoi");
   }, []);
@@ -63,21 +64,29 @@ function Weather() {
       });
     } catch (error) {
       console.error("Error fetching weather data:", error);
-      alert("City name not found :( .");
+      // alert("City name not found :( .");
       inputRef.current.value = "";
       inputRef.current.focus();
+      setError(true);
+      setWeatherData(false);
+      setTimeout(() => {
+        setError(false);
+        handleSearch("Hanoi");
+      }, 2000);
     }
   }
 
-  const convertDateNow = ()=>{
+  const convertDateNow = () => {
     const date = new Date();
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-  }
+    return `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+  };
 
   return (
     <>
       <div className="weather">
-        {weatherData ? (
+        {weatherData && (
           <>
             <h1 className="title">Nice to meet you ^^ </h1>
             <div>
@@ -91,6 +100,9 @@ function Weather() {
                   onKeyUp={(event) => {
                     if (event.key === "Enter" && inputRef.current) {
                       handleSearch(inputRef.current.value);
+                    }
+                    if (event.currentTarget.value === "08032025" && inputRef.current) {
+                     inputRef.current.value = "Lan ❤️ Hung";
                     }
                   }}
                 />
@@ -110,7 +122,6 @@ function Weather() {
                 <p className="temperature">{weatherData.temperature} độ C</p>
                 <p className="location">{weatherData.location}</p>
                 <p>Time : {convertDateNow()}</p>
-
               </div>
               <div className="weather-data">
                 <div className="col">
@@ -130,8 +141,11 @@ function Weather() {
               </div>
             </div>
           </>
-        ) : (
-          <div className="loading">Loading...</div>
+        )}
+        {error && (
+          <>
+            <p style={{ color: "#fff" }}>City not found !!</p>
+          </>
         )}
       </div>
     </>
