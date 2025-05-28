@@ -38,6 +38,13 @@
   text-align: center;
   color: #fff;
 }
+.content img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
 .location {
   color: #fff;
   font-size: 40px;

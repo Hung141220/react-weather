@@ -8,6 +8,7 @@ import cloudIcon from "../../assets/cloud.png"; // Assuming you have a search ic
 import drizzleIcon from "../../assets/drizzle.png"; // Assuming you have a search icon in this path
 import rainIcon from "../../assets/rain.png"; // Assuming you have a search icon in this path
 import snowIcon from "../../assets/snow.png"; // Assuming you have a search icon in this path
+import darling from "../../assets/481874777_657833050073465_9007047459517628461_n.jpg";
 
 type WeatherData = {
   humidity: any;
@@ -101,8 +102,15 @@ function Weather() {
                     if (event.key === "Enter" && inputRef.current) {
                       handleSearch(inputRef.current.value);
                     }
-                    if (event.currentTarget.value === "08032025" && inputRef.current) {
-                     inputRef.current.value = "Lan ❤️ Hung";
+                    if (
+                      event.currentTarget.value === "08032025" &&
+                      inputRef.current
+                    ) {
+                      inputRef.current.value = "Lan ❤️ Hung";
+                      setWeatherData({
+                        ...weatherData,
+                        icon: darling,
+                      });
                     }
                   }}
                 />
