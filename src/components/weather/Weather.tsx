@@ -18,13 +18,13 @@ type WeatherData = {
 };
 
 function Weather() {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const [weatherData, setWeatherData] = useState<WeatherData | boolean>(false);
   useEffect(() => {
     handleSearch("Hanoi");
   }, []);
 
-  const allIcon = {
+  const allIcon: { [key: string]: string } = {
     "01d": clearIcon,
     "01n": clearIcon,
     "02d": cloudIcon,
@@ -40,9 +40,10 @@ function Weather() {
     "13d": cloudIcon,
     "13n": cloudIcon,
   };
-  const handleInputChange = (event) => {
-    // Loại bỏ tất cả khoảng trắng ngay khi người dùng gõ
-    inputRef.current.value = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (inputRef.current) {
+      inputRef.current.value = event.target.value.replace(/\s+/g, "");
+    }
   };
 
   async function handleSearch(name: string) {
@@ -66,6 +67,11 @@ function Weather() {
       inputRef.current.value = "";
       inputRef.current.focus();
     }
+  }
+
+  const convertDateNow = ()=>{
+    const date = new Date();
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   }
 
   return (
@@ -103,6 +109,8 @@ function Weather() {
                 <img src={weatherData.icon} alt="clearicon" />
                 <p className="temperature">{weatherData.temperature} độ C</p>
                 <p className="location">{weatherData.location}</p>
+                <p>Time : {convertDateNow()}</p>
+
               </div>
               <div className="weather-data">
                 <div className="col">
