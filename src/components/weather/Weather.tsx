@@ -24,6 +24,9 @@ function Weather() {
   const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     handleSearch("Hanoi");
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   }, []);
 
   const allIcon: { [key: string]: string } = {
@@ -77,7 +80,8 @@ function Weather() {
     }
   }
 
-  const convertDateNow = () => {
+  const convertDateNow = (time: string = "") => {
+    if (time) return time;
     const date = new Date();
     return `${date.getDate()}/${
       date.getMonth() + 1
@@ -110,6 +114,10 @@ function Weather() {
                       setWeatherData({
                         ...weatherData,
                         icon: darling,
+                        location: "Coffee HanoiAn",
+                        temperature: "37",
+                        humidity: "99",
+                        windspeed: 99,
                       });
                     }
                   }}
