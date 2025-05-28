@@ -24,6 +24,7 @@ function Weather() {
   const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     handleSearch("Hanoi");
+    console.log("focus nè");
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -70,13 +71,14 @@ function Weather() {
       console.error("Error fetching weather data:", error);
       // alert("City name not found :( .");
       inputRef.current.value = "";
-      inputRef.current.focus();
+
       setError(true);
       setWeatherData(false);
       setTimeout(() => {
         setError(false);
         handleSearch("Hanoi");
       }, 2000);
+      inputRef.current.focus();
     }
   }
 
@@ -101,7 +103,7 @@ function Weather() {
                   placeholder="Search for a city..."
                   className="search-input"
                   ref={inputRef}
-                  onChange={handleInputChange}
+                  // onChange={handleInputChange}
                   onKeyUp={(event) => {
                     if (event.key === "Enter" && inputRef.current) {
                       handleSearch(inputRef.current.value);
