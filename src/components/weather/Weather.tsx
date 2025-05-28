@@ -64,6 +64,7 @@ function Weather() {
       console.error("Error fetching weather data:", error);
       alert("City name not found :( .");
       inputRef.current.value = "";
+      inputRef.current.focus();
     }
   }
 
