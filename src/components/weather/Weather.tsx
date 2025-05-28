@@ -42,7 +42,7 @@ function Weather() {
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (inputRef.current) {
-      inputRef.current.value = event.target.value.replace(/\s+/g, "");
+      inputRef.current.value = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
     }
   };
 
