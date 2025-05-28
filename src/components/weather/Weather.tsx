@@ -40,6 +40,10 @@ function Weather() {
     "13d": cloudIcon,
     "13n": cloudIcon,
   };
+  const handleInputChange = (event) => {
+    // Loại bỏ tất cả khoảng trắng ngay khi người dùng gõ
+    inputRef.current.value = event.target.value.replace(/[^a-zA-Z0-9]/g, "");
+  };
 
   async function handleSearch(name: string) {
     try {
@@ -58,58 +62,68 @@ function Weather() {
       });
     } catch (error) {
       console.error("Error fetching weather data:", error);
-      alert("Failed to fetch weather data. Please try again later.");
+      alert("City name not found :( .");
+      inputRef.current.value = "";
     }
   }
 
   return (
     <>
       <div className="weather">
-       {
-        weatherData ? (
-          <div>
-            <div className="search-bar">
-              <input
-                type="text"
-                placeholder="Search for a city..."
-                className="search-input"
-                ref={inputRef}
-              />
-              <img
-                src={searchIcon}
-                alt="btn-search"
-                className="search-img"
-                onClick={() => {
-                  if (inputRef.current) {
-                    handleSearch(inputRef.current.value);
-                  }
-                }}
-              />
-            </div>
-            <div className="content">
-              <img src={weatherData.icon} alt="clearicon" />
-              <p className="temperature">{weatherData.temperature} độ C</p>
-              <p className="location">{weatherData.location}</p>
-            </div>
-            <div className="weather-data">
-              <div className="col">
-                <img src={humidityIcon} alt="" />
-                <div>
-                  <p className="day">{weatherData.humidity} %</p>
-                  <p className="temp">HUMIDIT</p>
+        {weatherData ? (
+          <>
+            <h1 className="title">Nice to meet you ^^ </h1>
+            <div>
+              <div className="search-bar">
+                <input
+                  type="text"
+                  placeholder="Search for a city..."
+                  className="search-input"
+                  ref={inputRef}
+                  onChange={handleInputChange}
+                  onKeyUp={(event) => {
+                    if (event.key === "Enter" && inputRef.current) {
+                      handleSearch(inputRef.current.value);
+                    }
+                  }}
+                />
+                <img
+                  src={searchIcon}
+                  alt="btn-search"
+                  className="search-img"
+                  onClick={() => {
+                    if (inputRef.current) {
+                      handleSearch(inputRef.current.value);
+                    }
+                  }}
+                />
+              </div>
+              <div className="content">
+                <img src={weatherData.icon} alt="clearicon" />
+                <p className="temperature">{weatherData.temperature} độ C</p>
+                <p className="location">{weatherData.location}</p>
+              </div>
+              <div className="weather-data">
+                <div className="col">
+                  <img src={humidityIcon} alt="" />
+                  <div>
+                    <p className="day">{weatherData.humidity} %</p>
+                    <p className="temp">HUMIDIT</p>
+                  </div>
+                </div>
+                <div className="col">
+                  <img src={windIcon} alt="" />
+                  <div>
+                    <p className="day">{weatherData.windspeed} km/h</p>
+                    <p className="temp">WINDSPEED</p>
+                  </div>
                 </div>
               </div>
-              <div className="col">
-                <img src={windIcon} alt="" />
-                <div>
-                  <p className="day">{weatherData.windspeed} km/h</p>
-                  <p className="temp">16 độ</p>
-                </div>
-              </div>
             </div>
-          </div>
-        ) : <div className="loading">Loading...</div>
-       }
+          </>
+        ) : (
+          <div className="loading">Loading...</div>
+        )}
       </div>
     </>
   );
