@@ -55,7 +55,7 @@ function Weather() {
       const icon = allIcon[data.weather[0].icon] || clearIcon;
       setWeatherData({
         humidity: data.main.humidity,
-        windspeed: data.main.speed,
+        windspeed: data.wind.speed,
         temperature: Math.floor(data.main.temp),
         location: data.name,
         icon: icon,
