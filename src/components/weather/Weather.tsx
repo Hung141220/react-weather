@@ -121,7 +121,7 @@ function Weather() {
             <img
               src={searchIcon}
               alt="btn-search"
-              className="search-img"
+              className="search-img t"
               onClick={() => {
                 if (inputRef.current) {
                   handleSearch(inputRef.current.value);
@@ -129,8 +129,15 @@ function Weather() {
               }}
             />
           </div>
-          <div className="content">
-            <img src={weatherData?.icon} alt="clearicon" />
+          <div
+            className="content flex flex-col justify-center "
+            style={{ alignItems: "center" }}
+          >
+            <img
+              className="text-center"
+              src={weatherData?.icon}
+              alt="clearicon"
+            />
             <p className="temperature">{weatherData?.temperature} độ C</p>
             <p className="location">{weatherData?.location}</p>
             <p>Time : {convertDateNow()}</p>
