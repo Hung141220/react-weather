@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Weather.css";
-import searchIcon from "../../assets/search.png"; // Assuming you have a search icon in this path
-import humidityIcon from "../../assets/humidity.png"; // Assuming you have a search icon in this path
-import windIcon from "../../assets/wind.png"; // Assuming you have a search icon in this path
-import clearIcon from "../../assets/clear.png"; // Assuming you have a search icon in this path
-import cloudIcon from "../../assets/cloud.png"; // Assuming you have a search icon in this path
-import drizzleIcon from "../../assets/drizzle.png"; // Assuming you have a search icon in this path
-import rainIcon from "../../assets/rain.png"; // Assuming you have a search icon in this path
-import snowIcon from "../../assets/snow.png"; // Assuming you have a search icon in this path
+import searchIcon from "../../assets/search.png";
+import humidityIcon from "../../assets/humidity.png";
+import windIcon from "../../assets/wind.png";
+import clearIcon from "../../assets/clear.png";
+import cloudIcon from "@/assets/cloud.png";
+import drizzleIcon from "../../assets/drizzle.png";
+import rainIcon from "../../assets/rain.png";
+import snowIcon from "../../assets/snow.png";
 import darling from "../../assets/481874777_657833050073465_9007047459517628461_n.jpg";
 
 type WeatherData = {
@@ -20,11 +20,10 @@ type WeatherData = {
 
 function Weather() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [weatherData, setWeatherData] = useState<WeatherData | boolean>(false);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<boolean>(false);
   useEffect(() => {
     handleSearch("Hanoi");
-    console.log("focus nè");
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -89,82 +88,70 @@ function Weather() {
       date.getMonth() + 1
     }/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   };
+  const handleInputKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && inputRef.current) {
+      handleSearch(inputRef.current.value);
+    }
+    if (event.currentTarget.value === "08032025" && inputRef.current) {
+      inputRef.current.value = "Lan ❤️ Hung";
+      setWeatherData({
+        ...(weatherData || {}),
+        icon: darling,
+        location: "Coffee HanoiAn",
+        temperature: "37",
+        humidity: "99",
+        windspeed: 99,
+      });
+    }
+  };
 
   return (
     <>
       <div className="weather">
-        {weatherData && (
-          <>
-            <h1 className="title">Nice to meet you ^^ </h1>
-            <div>
-              <div className="search-bar">
-                <input
-                  type="text"
-                  placeholder="Search for a city..."
-                  className="search-input"
-                  ref={inputRef}
-                  // onChange={handleInputChange}
-                  onKeyUp={(event) => {
-                    if (event.key === "Enter" && inputRef.current) {
-                      handleSearch(inputRef.current.value);
-                    }
-                    if (
-                      event.currentTarget.value === "08032025" &&
-                      inputRef.current
-                    ) {
-                      inputRef.current.value = "Lan ❤️ Hung";
-                      setWeatherData({
-                        ...weatherData,
-                        icon: darling,
-                        location: "Coffee HanoiAn",
-                        temperature: "37",
-                        humidity: "99",
-                        windspeed: 99,
-                      });
-                    }
-                  }}
-                />
-                <img
-                  src={searchIcon}
-                  alt="btn-search"
-                  className="search-img"
-                  onClick={() => {
-                    if (inputRef.current) {
-                      handleSearch(inputRef.current.value);
-                    }
-                  }}
-                />
-              </div>
-              <div className="content">
-                <img src={weatherData.icon} alt="clearicon" />
-                <p className="temperature">{weatherData.temperature} độ C</p>
-                <p className="location">{weatherData.location}</p>
-                <p>Time : {convertDateNow()}</p>
-              </div>
-              <div className="weather-data">
-                <div className="col">
-                  <img src={humidityIcon} alt="" />
-                  <div>
-                    <p className="day">{weatherData.humidity} %</p>
-                    <p className="temp">HUMIDIT</p>
-                  </div>
-                </div>
-                <div className="col">
-                  <img src={windIcon} alt="" />
-                  <div>
-                    <p className="day">{weatherData.windspeed} km/h</p>
-                    <p className="temp">WINDSPEED</p>
-                  </div>
-                </div>
+        <h1 className="title">Nice to meet you ^^ </h1>
+        <div>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search for a city..."
+              className="search-input"
+              ref={inputRef}
+              onKeyUp={handleInputKeyUp}
+            />
+            <img
+              src={searchIcon}
+              alt="btn-search"
+              className="search-img"
+              onClick={() => {
+                if (inputRef.current) {
+                  handleSearch(inputRef.current.value);
+                }
+              }}
+            />
+          </div>
+          <div className="content">
+            <img src={weatherData?.icon} alt="clearicon" />
+            <p className="temperature">{weatherData?.temperature} độ C</p>
+            <p className="location">{weatherData?.location}</p>
+            <p>Time : {convertDateNow()}</p>
+          </div>
+          <div className="weather-data">
+            <div className="col">
+              <img src={humidityIcon} alt="" />
+              <div>
+                <p className="day">{weatherData?.humidity} %</p>
+                <p className="temp">HUMIDIT</p>
               </div>
             </div>
-          </>
-        )}
-        {error && (
-          <>
-            <p style={{ color: "#fff" }}>City not found !!</p>
-          </>
-        )}
+            <div className="col">
+              <img src={windIcon} alt="" />
+              <div>
+                <p className="day">{weatherData?.windspeed} km/h</p>
+                <p className="temp">WINDSPEED</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
