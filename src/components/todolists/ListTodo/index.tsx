@@ -1,4 +1,4 @@
-import { Col, Row, Input, Button, Select, Tag } from "antd";
+import { Col, Row, Input, Button, Select, Tag, message } from "antd";
 import Todo from "../Todo";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodoAction } from "@/redux/action";
@@ -12,6 +12,7 @@ export default function TodoList() {
   const todoNameRef = useRef<HTMLInputElement | null>(null); // andtd chưa biết focus sao
   const [todoName, setTodoName] = useState("");
   const [priority, setPriority] = useState<Priority>("Medium");
+  const [messageApi, contextHolder] = message.useMessage();
 
   const todolists = useSelector(todoListSelector);
 
@@ -30,6 +31,9 @@ export default function TodoList() {
     setPriority(value);
   };
   const handleOnClick = () => {
+    if (!todoName) {
+      message.error("Vui lòng nhập công việc");
+    }
     /* Xử lý dispatch vào reducer */
     dispatch(
       addTodoAction({
@@ -43,6 +47,7 @@ export default function TodoList() {
   };
   return (
     <Row style={{ height: "calc(100% - 40px)" }}>
+      {contextHolder}
       <Col span={24} style={{ height: "calc(100% - 40px)", overflowY: "auto" }}>
         {todolists.map((todo) => (
           <Todo name={todo.name} prioriry={todo.priority} key={todo.id} />
@@ -50,7 +55,7 @@ export default function TodoList() {
       </Col>
       <Col span={24}>
         <Input.Group style={{ display: "flex" }} compact>
-          <Input value={todoName} onChange={handleOnChangeTodoName} />
+          <Input value={todoName} onChange={handleOnChangeTodoName}  placeholder="Công việc"/>
           <Select
             defaultValue="Medium"
             value={priority}
