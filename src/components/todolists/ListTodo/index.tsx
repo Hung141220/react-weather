@@ -32,7 +32,8 @@ export default function TodoList() {
   };
   const handleOnClick = () => {
     if (!todoName) {
-      message.error("Vui lòng nhập công việc");
+      messageApi.error("Vui lòng nhập công việc");
+      return;
     }
     /* Xử lý dispatch vào reducer */
     dispatch(
@@ -55,7 +56,11 @@ export default function TodoList() {
       </Col>
       <Col span={24}>
         <Input.Group style={{ display: "flex" }} compact>
-          <Input value={todoName} onChange={handleOnChangeTodoName}  placeholder="Công việc"/>
+          <Input
+            value={todoName}
+            onChange={handleOnChangeTodoName}
+            placeholder="Công việc"
+          />
           <Select
             defaultValue="Medium"
             value={priority}
