@@ -9,7 +9,7 @@ function TodolistPage() {
     <>
       <div
         style={{
-          width: 500,
+          // width: 500,
           margin: "0 auto",
           display: "flex",
           flexDirection: "column",
@@ -19,6 +19,7 @@ function TodolistPage() {
           borderRadius: 5,
           height: "90vh",
         }}
+        className="md:w-[500px] sm:w-[300px] "
       >
         <Title style={{ textAlign: "center" }}>TODO APP with REDUX</Title>
         <Filters />
