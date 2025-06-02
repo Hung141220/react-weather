@@ -33,7 +33,7 @@ export const initState: AppState = {
   ],
 };
 
-/* Xử lý nhận dispatch */
+/* Xử lý nhận action(dc đẩy bởi dispatch) */
 export default function routeReducer(
   state = initState,
   action: Action
