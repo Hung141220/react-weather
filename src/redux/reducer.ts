@@ -1,3 +1,6 @@
+import filterSlice from "@/components/todolists/Filter/filterSlice";
+import todoSlice from "@/components/todolists/ListTodo/todoSlice";
+
 export type Priority = "Low" | "Medium" | "High";
 export interface Todo {
   id: string;
@@ -38,17 +41,8 @@ export default function routeReducer(
   state = initState,
   action: Action
 ): AppState {
-  let newState = { ...state };
-  switch (action.type) {
-    case "todoList/addTodo":
-      newState = {
-        ...state,
-        todoList: [...state.todoList, action.payload],
-      };
-      break;
-
-    default:
-      break;
-  }
-  return newState;
+  return {
+    filters: filterSlice(state.filters, action),
+    todoList: todoSlice(state.todoList, action),
+  };
 }

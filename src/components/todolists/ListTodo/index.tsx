@@ -1,11 +1,11 @@
 import { Col, Row, Input, Button, Select, Tag, message } from "antd";
 import Todo from "../Todo";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodoAction } from "@/redux/action";
 import React, { useRef, useState } from "react";
 import type { Priority } from "@/redux/reducer";
 import { v4 } from "uuid";
-import { todoListSelector } from "@/redux/selector";
+import { todoListSelector, todosRemainingSelector } from "@/redux/selector";
+import todoSlice from "./todoSlice";
 
 export default function TodoList() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function TodoList() {
   const [priority, setPriority] = useState<Priority>("Medium");
   const [messageApi, contextHolder] = message.useMessage();
 
-  const todolists = useSelector(todoListSelector);
+  const todolists = useSelector(todosRemainingSelector);
 
   const resetTodoName = () => {
     setTodoName("");
@@ -30,6 +30,7 @@ export default function TodoList() {
   const handlePriorityChange = (value: Priority) => {
     setPriority(value);
   };
+
   const handleOnClick = () => {
     if (!todoName) {
       messageApi.error("Vui lòng nhập công việc");
@@ -37,7 +38,7 @@ export default function TodoList() {
     }
     /* Xử lý dispatch vào reducer */
     dispatch(
-      addTodoAction({
+      todoSlice.actions.addTodo({
         id: v4(),
         name: todoName,
         priority: priority,
