@@ -3,6 +3,8 @@ import Weather from "@/components/weather/Weather";
 import DarlingPage from "@/components/darling/DarlingPage";
 import TodolistPage from "@/pages/TodolistPage";
 import InfomationPage from "@/components/InfomationPage";
+import FunnyPage from "@/components/funny/FunnyPage";
+import PrivateFunny from "@/components/privates/PrivateFunny";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
   {
     path: "todolist",
     element: <TodolistPage />,
+  },
+  {
+    path: "funny",
+    element: (
+      <PrivateFunny>
+        <FunnyPage />
+      </PrivateFunny>
+    ),
   },
 
   //   {
