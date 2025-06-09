@@ -1,14 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Weather from "@/components/weather/Weather";
 import DarlingPage from "@/components/darling/DarlingPage";
 import TodolistPage from "@/pages/TodolistPage";
-import InfomationPage from "@/components/InfomationPage";
 import FunnyPage from "@/components/funny/FunnyPage";
 import PrivateFunny from "@/components/privates/PrivateFunny";
+import Portfolio from "@/pages/Portfolio/Portfolio";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <InfomationPage />,
+    element: <Portfolio />,
   },
   {
     path: "weather",
@@ -29,6 +29,10 @@ export const router = createBrowserRouter([
         <FunnyPage />
       </PrivateFunny>
     ),
+  },
+  {
+    path: "*",
+    element: <Navigate to="/" replace />,
   },
 
   //   {
