@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({
   menuOpen,
@@ -56,6 +57,7 @@ const Navbar = ({
               {" "}
               Contat{" "}
             </a>
+            <Link to="/funny"> Darling </Link>
           </div>
         </div>
       </div>

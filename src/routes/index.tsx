@@ -9,6 +9,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Portfolio />,
+    index: true,
   },
   {
     path: "weather",

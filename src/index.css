@@ -47,4 +47,13 @@ body {
   .animate-loading-bar {
     animation: loading 0.8s ease infinite;
   }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10vh) scale(0.5);
+    }
+    100% {
+      transform: translateY(110vh) scale(2);
+    }
+  }
 }

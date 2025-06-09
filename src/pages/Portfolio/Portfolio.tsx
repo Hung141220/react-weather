@@ -2,11 +2,15 @@ import LoadingScreen from "@/components/portfolio/LoadingScreen";
 import MobileMenu from "@/components/portfolio/MobileMenu";
 import Navbar from "@/components/portfolio/Navbar";
 import Home from "@/components/portfolio/sections/Home";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Portfolio = () => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    document.title = "Portfolio";
+  }, []);
 
   return (
     <>
