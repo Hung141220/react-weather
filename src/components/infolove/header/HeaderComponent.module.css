@@ -2,6 +2,38 @@
     background-color: blueviolet;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.navbarLink {}
+
+.logoText {
+    font-weight: 500;
+    font-size: 24px;
+    text-shadow: -4px 2px 4px white;
+}
+
+.navMenu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* column-gap: 24px; */
+}
+
+.navLink {
+    transition: 300ms transform ease;
+    padding: 0px 8px;
+    cursor: pointer;
+
+}
+
+.navLink:hover {
+    transform: translateY(-4px);
+}
+
 .navbar,
 .navMenu,
 .navLink,
@@ -9,14 +41,6 @@
     color: white;
 }
 
-.navbar {}
 
-.logoText {}
 
 .navbarTogoLink {}
-
-.navMenu {}
-
-.navLink {}
-
-.navbarLink {}
