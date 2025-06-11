@@ -1,14 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-cube";
-import "swiper/css/pagination";
+
 import { Autoplay, EffectCube, Pagination } from "swiper/modules";
-import "./funny.css";
+import "./FunnyPage.css";
 import { dataImage } from "@/utils/dataImage";
 import { message } from "antd";
 import { useEffect } from "react";
 import RainText from "../RainText";
-import img1 from '@/assets/img/2.jpg'
 
 function FunnyPage() {
   const [messageApi, contextHolder] = message.useMessage();

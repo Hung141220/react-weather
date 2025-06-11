@@ -5,6 +5,8 @@ import TodolistPage from "@/pages/TodolistPage";
 import FunnyPage from "@/components/funny/FunnyPage";
 import PrivateFunny from "@/components/privates/PrivateFunny";
 import Portfolio from "@/pages/Portfolio/Portfolio";
+import InfoLoveLayout from "@/layouts/InfoLoveLayout";
+import HomePage from "@/pages/InfoLove/HomePage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +32,16 @@ export const router = createBrowserRouter([
         <FunnyPage />
       </PrivateFunny>
     ),
+  },
+  {
+    path: "info-love",
+    element: <InfoLoveLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+    ],
   },
   {
     path: "*",

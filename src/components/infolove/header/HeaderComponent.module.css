@@ -1,0 +1,22 @@
+.header {
+    background-color: blueviolet;
+}
+
+.navbar,
+.navMenu,
+.navLink,
+.logoText {
+    color: white;
+}
+
+.navbar {}
+
+.logoText {}
+
+.navbarTogoLink {}
+
+.navMenu {}
+
+.navLink {}
+
+.navbarLink {}
