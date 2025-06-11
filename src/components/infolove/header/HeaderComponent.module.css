@@ -1,5 +1,6 @@
 .header {
     background-color: blueviolet;
+    /* max-width: var(--site-max-width); */
 }
 
 .navbar {
