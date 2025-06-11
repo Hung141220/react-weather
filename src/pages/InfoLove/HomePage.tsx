@@ -2,9 +2,20 @@ import twoPeople from "@/assets/img/twopeople.jpg";
 import clsx from "clsx";
 import styles from "@/css/infoloves/HomePage.module.css";
 import { useState } from "react";
+import Slider from "react-slick";
+import img20022025 from "@/assets/img/20022025.png";
+import img22022025 from "@/assets/img/22022025.png";
+import img28022025 from "@/assets/img/28022025.png";
 
 const HomePage = () => {
   const [showMore, setShowMore] = useState(false);
+  const settings = {
+    // dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
   return (
     <>
       <section className={clsx(styles.heroSection)}>
@@ -67,16 +78,62 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* <section>
+      <section className={clsx(styles.heroSection, "h-full")}>
         <div>
           <div>
-            <h2>Lộ trình ha: </h2>
+            <h2 className={clsx(styles.heroTitle)}>Lộ trình ha: </h2>
           </div>
-          <div>
-
+          <div className="">
+            <Slider {...settings}>
+              <div>
+                <div className="card">
+                  <div className="mx-auto w-2xs h-[300px]">
+                    <img
+                      className="h-full w-full object-cover"
+                      src={img20022025}
+                      alt="img20022025"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <p>Ngày: 20/02/2025</p>
+                    <p>Hôm đó FDate nè, xinh thật sự</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="card">
+                  <div className="mx-auto w-2xs h-[300px]">
+                    <img
+                      className="h-full w-full object-cover"
+                      src={img22022025}
+                      alt="img22022025"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <p>Ngày: 22/02/2025</p>
+                    <p>Hôm đó mình tặng hoa tuilip nè 🌷</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="card">
+                  <div className="mx-auto w-2xs h-[300px]">
+                    <img
+                      className="h-full w-full object-cover"
+                      src={img28022025}
+                      alt="img28022025"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <p>Ngày: 22/02/2025</p>
+                    <p>Hôm đó mình đi ăn bánh cuốn, tô tranh ^^</p>
+                  </div>
+                </div>
+              </div>
+            </Slider>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 };

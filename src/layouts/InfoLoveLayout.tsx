@@ -9,7 +9,7 @@ function InfoLoveLayout() {
       {/* header */}
       <HeaderComponent />
 
-      <main>
+      <main style={{ background: "#ccc" }}>
         <Outlet />
       </main>
 
