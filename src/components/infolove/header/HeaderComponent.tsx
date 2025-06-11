@@ -1,8 +1,7 @@
-import React from "react";
 import styles from "./HeaderComponent.module.css";
 import clsx from "clsx";
 
-function HeaderComponent() {
+const HeaderComponent = () => {
   return (
     <>
       <header className={clsx(styles.header)}>
@@ -12,20 +11,20 @@ function HeaderComponent() {
           </a>
 
           <div className={clsx(styles.navMenu)}>
-            <a href="" className={clsx(styles.navLink)}>
-              Home
+            <a href="#" className={clsx(styles.navLink)}>
+              Mạnh Hùng
             </a>
-            <a href="" className={clsx(styles.navLink)}>
-              About
+            <a href="#" className={clsx(styles.navLink)}>
+              <span className={clsx(styles.navLingHeart)}>❤️</span>
             </a>
-            <a href="" className={clsx(styles.navLink)}>
-              Contact
+            <a href="#" className={clsx(styles.navLink)}>
+              Ngọc Lan
             </a>
           </div>
         </nav>
       </header>
     </>
   );
-}
+};
 
 export default HeaderComponent;

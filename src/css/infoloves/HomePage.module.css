@@ -1,0 +1,49 @@
+.heroSection {
+  background: var(--infolove-gray-color);
+  min-height: 100vh;
+  padding: 80px 32px 0;
+}
+.heroContent {
+  display: flex;
+  align-items: center;
+  color: #252525;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+.heroDetail {
+  flex: 2;
+}
+.heroTitle {
+  font-size: var(--infolove-text-xxl);
+  font-family: "Miniver", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.heroSubTitle {
+  font-size: var(--infolove-text-n);
+  font-weight: 600;
+   text-indent: 2em;
+}
+.heroDesc {
+  text-align: justify;
+  font-family: "Miniver", sans-serif;
+}
+.heroDescLine {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-indent: 2em;
+}
+.heroImgWrap {
+  flex: 1;
+}
+.heroImg {
+  object-fit: cover;
+  border-radius: 10%;
+}

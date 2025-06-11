@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Miniver&display=swap");
 @import "tailwindcss";
 
 html,
@@ -13,7 +14,21 @@ body {
 }
 
 :root {
-  --site-max-width: 1080px;
+  --infolove-white-color: #fff;
+  --infolove-dark-color: #252525;
+  --infolove-primary-color: #3b141c;
+  --infolove-secondary-color: #f3961c;
+  --infolove-pink-color: #faf4f5;
+  --infolove-gray-color: #ccc;
+
+  --infolove-text-s: 0.9rem;
+  --infolove-text-n: 1rem;
+  --infolove-text-m: 1.12rem;
+  --infolove-text-l: 1.5rem;
+  --infolove-text-xl: 2rem;
+  --infolove-text-xxl: 2.3rem;
+
+  --infolove-site-max-width: 1300px;
 }
 
 .app {
@@ -23,44 +38,42 @@ body {
 }
 
 /* animation */
-@layer utilities {
-  @keyframes blink {
-
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0;
-    }
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
   }
 
-  .animate-blink {
-    animation: blink 0.8s step-end infinite;
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
   }
 
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
+  100% {
+    transform: translateX(200%);
+  }
+}
 
-    100% {
-      transform: translateX(200%);
-    }
+.animate-loading-bar {
+  animation: loading 0.8s ease infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) scale(0.5);
   }
 
-  .animate-loading-bar {
-    animation: loading 0.8s ease infinite;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(-10vh) scale(0.5);
-    }
-
-    100% {
-      transform: translateY(110vh) scale(2);
-    }
+  100% {
+    transform: translateY(110vh) scale(2);
   }
 }

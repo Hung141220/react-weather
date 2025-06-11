@@ -1,47 +1,67 @@
+@keyframes heart {
+  0%,
+  100% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
 .header {
-    background-color: blueviolet;
-    /* max-width: var(--site-max-width); */
+  background-color: var(--infolove-primary-color);
+  /* max-width: var(--infolove-site-max-width); */
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  padding: 0 32px;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
 }
 
-.navbarLink {}
+.navbarLink {
+}
 
 .logoText {
-    font-weight: 500;
-    font-size: 24px;
-    text-shadow: -4px 2px 4px white;
+  font-weight: 500;
+  font-size: 24px;
+  text-shadow: -4px 2px 4px white;
 }
 
 .navMenu {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    /* column-gap: 24px; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* column-gap: 24px; */
 }
 
 .navLink {
-    transition: 300ms transform ease;
-    padding: 0px 8px;
-    cursor: pointer;
-
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .navLink:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
+  background: var(--infolove-gray-color);
+}
+.navLingHeart {
+  display: inline-block;
+  animation: heart 0.8s ease infinite;
 }
 
 .navbar,
 .navMenu,
 .navLink,
 .logoText {
-    color: white;
+  color: white;
 }
 
-
-
-.navbarTogoLink {}
+.navbarTogoLink {
+}
