@@ -57,7 +57,7 @@ const Navbar = ({
               {" "}
               Contat{" "}
             </a>
-            <Link to="/funny"> Darling </Link>
+            {/* <Link to="/funny"> Darling </Link> */}
           </div>
         </div>
       </div>

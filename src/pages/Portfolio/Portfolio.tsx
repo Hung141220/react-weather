@@ -5,6 +5,9 @@ import Home from "@/components/portfolio/sections/Home";
 import { useEffect, useState } from "react";
 import styles from "@/css/portfolios/Portfolio.module.css";
 import clsx from "clsx";
+import About from "@/components/portfolio/sections/About";
+import Project from "@/components/portfolio/sections/Project";
+import Contact from "@/components/portfolio/sections/Contact";
 
 const Portfolio = () => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
@@ -33,6 +36,9 @@ const Portfolio = () => {
 
           {/* section */}
           <Home />
+          <About />
+          <Project />
+          <Contact />
         </div>
       </div>
     </>
