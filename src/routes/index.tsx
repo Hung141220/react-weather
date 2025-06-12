@@ -7,6 +7,7 @@ import PrivateFunny from "@/components/privates/PrivateFunny";
 import Portfolio from "@/pages/Portfolio/Portfolio";
 import InfoLoveLayout from "@/layouts/InfoLoveLayout";
 import HomePage from "@/pages/InfoLove/HomePage";
+
 export const router = createBrowserRouter([
   {
     path: "/",
