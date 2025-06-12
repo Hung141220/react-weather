@@ -1,60 +1,100 @@
-import React from "react";
-import { Breadcrumb, Col, InputNumber, Layout, Menu, Row, theme } from "antd";
+import React, { useEffect, useState } from "react";
+import styles from "./PasswordPrompt.module.css";
+import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+import { message } from "antd";
+import funnySlice from "../funny/funnySlice";
 
-const { Header, Content, Footer } = Layout;
-
-const items = Array.from({ length: 15 }).map((_, index) => ({
-  key: index + 1,
-  label: `nav ${index + 1}`,
-}));
+const NUMPAD = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  ["←", 0, "C"],
+];
 
 const PasswordPrompt: React.FC = () => {
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-  const style: React.CSSProperties = {
-    background: "#0092ff",
-    padding: "8px 0",
-  };
+  const [showPass, setShowPass] = useState(false);
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const handleNumpadClick = (val: string | number) => {
+    if (val === "←") setPassword(password.slice(0, -1));
+    else if (val === "C") setPassword("");
+    else setPassword(password + val);
+  };
+  const { error } = useSelector<
+    { funny: { isAuthenticated: boolean; error: string } },
+    { isAuthenticated: boolean; error: string }
+  >((state) => state.funny);
+
+  const handleCheckAuthenticate = () => {
+    if (password.trim() === "") {
+      messageApi.error("Vui lòng nhập");
+      // if (passInput?.current) {
+      //   passInput.current.focus();
+      // }
+      return;
+    }
+    dispatch(funnySlice.actions.handleAuthenticated(password));
+  };
+  useEffect(() => {
+    if (error.trim() !== "") {
+      messageApi.error(error);
+    }
+  }, [error]);
+  const handleShowPass = () => {
+    setShowPass((prev) => !prev);
+  };
   return (
-    <Layout>
-      {/* <Header style={{ display: "flex", alignItems: "center" }}>
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={items}
-          style={{ flex: 1, minWidth: 0 }}
-        />
-      </Header> */}
-      <Content style={{ padding: "0 48px" }}>
-        {/* <Breadcrumb
-          items={[{ title: "Home" }, { title: "List" }, { title: "App" }]}
-        /> */}
-        <div
-          style={{
-            background: colorBgContainer,
-            minHeight: "100vh",
-            // padding: 24,
-            borderRadius: borderRadiusLG,
-          }}
-        >
-          <div
-            style={{
-              textAlign: "center",
-              width: "100%",
-            }}
-          >
-            <InputNumber style={{ width: "1005" }} />
+    <>
+      {contextHolder}
+      <div className={clsx(styles.wrapper)}>
+        <form action="#">
+          <h1 className={clsx(styles.title)}>Login</h1>
+          <div className={clsx(styles.inputGroup)}>
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder="Nhập mật khẩu"
+              onPaste={() => false}
+              readOnly
+              value={password}
+            />
+            <i
+              className={clsx({ [styles.showPassword]: showPass })}
+              onClick={handleShowPass}
+            >
+              👀
+            </i>
           </div>
-        </div>
-      </Content>
-      {/* <Footer style={{ textAlign: "center" }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
-      </Footer> */}
-    </Layout>
+
+          <div className={clsx(styles.numpad)}>
+            {NUMPAD.map((row, i) => (
+              <div key={i} className={clsx(styles.numpadRow)}>
+                {row.map((num) => (
+                  <button
+                    key={num}
+                    className={clsx(styles.numpadKey)}
+                    onClick={() => handleNumpadClick(num)}
+                  >
+                    {num}
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <button
+            className={clsx(styles.btnCheck)}
+            type="button"
+            onClick={handleCheckAuthenticate}
+          >
+            Check
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 
