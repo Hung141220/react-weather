@@ -1,6 +1,26 @@
+import { useEffect, useState } from "react";
 import RevealOnScroll from "./RevealOnScroll";
 
+const TEXT_INTRO = ["Le Manh Hung", "Backend Developer"];
 const Home = () => {
+  const [text, setText] = useState("");
+  const [textIntroIndex, setTextIntroIndex] = useState(0);
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setText(TEXT_INTRO[textIntroIndex].substring(0, index));
+      index++;
+
+      if (index > TEXT_INTRO[textIntroIndex].length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          setTextIntroIndex((prev) => (prev + 1) % TEXT_INTRO.length);
+        }, 2500);
+      }
+    }, 200);
+    return () => clearInterval(interval);
+  }, [textIntroIndex]);
+
   return (
     <section
       id="home"
@@ -8,8 +28,11 @@ const Home = () => {
     >
       <RevealOnScroll>
         <div className="px-4 text-center">
-          <h1 className="mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-5xl leading-tight font-bold text-transparent select-none md:text-7xl">
-            Hi, I'm Le Manh Hung
+          <h1 className="mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-4xl leading-tight font-bold text-transparent select-none md:text-7xl">
+            Hi, I'm {text}
+            <span className="animate-blink ml-1 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text leading-tight font-bold text-transparent">
+              |
+            </span>
           </h1>
           <p className="mx-auto mb-8 max-w-4xl text-center text-xl text-gray-400 md:text-lg">
             I have three years of hands-on experience working with PHP Laravel,

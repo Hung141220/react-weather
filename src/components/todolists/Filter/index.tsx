@@ -25,6 +25,7 @@ export default function Filters() {
   };
   return (
     <Row justify="center">
+      {/*  */}
       <Col span={24}>
         <Typography.Paragraph
           style={{ fontWeight: "bold", marginBottom: 3, marginTop: 10 }}
@@ -37,6 +38,7 @@ export default function Filters() {
           onChange={handleSearchTxtChange}
         />
       </Col>
+      {/*  */}
       <Col sm={24}>
         <Typography.Paragraph
           style={{ fontWeight: "bold", marginBottom: 3, marginTop: 10 }}
@@ -49,6 +51,7 @@ export default function Filters() {
           <Radio value="Todo">To do</Radio>
         </Radio.Group>
       </Col>
+      {/*  */}
       <Col sm={24}>
         <Typography.Paragraph
           style={{ fontWeight: "bold", marginBottom: 3, marginTop: 10 }}

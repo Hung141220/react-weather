@@ -1,5 +1,4 @@
 import LoadingScreen from "@/components/portfolio/LoadingScreen";
-import MobileMenu from "@/components/portfolio/MobileMenu";
 import Navbar from "@/components/portfolio/Navbar";
 import Home from "@/components/portfolio/sections/Home";
 import { useEffect, useState } from "react";
@@ -8,6 +7,7 @@ import clsx from "clsx";
 import About from "@/components/portfolio/sections/About";
 import Project from "@/components/portfolio/sections/Project";
 import Contact from "@/components/portfolio/sections/Contact";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const Portfolio = () => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
@@ -42,6 +42,7 @@ const Portfolio = () => {
           </div>
         )}
       </div>
+      <ScrollToTopButton />
     </>
   );
 };

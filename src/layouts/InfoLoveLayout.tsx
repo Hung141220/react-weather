@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
-import styles from "@/css/infoloves/InfoLoveLayout.module.css";
 import HeaderComponent from "@/components/infolove/header/HeaderComponent";
-import clsx from "clsx";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 function InfoLoveLayout() {
   return (
@@ -13,6 +12,7 @@ function InfoLoveLayout() {
         <Outlet />
       </main>
 
+      {/* Scroll to top button */}
       {/* footer */}
     </>
   );

@@ -15,6 +15,17 @@ const Navbar = ({
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [menuOpen]);
+
   return (
     <nav className="fixed top-0 z-4 w-full border-b border-white/10 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg">
       <div className="m-auto max-w-5xl px-4">
@@ -46,7 +57,7 @@ const Navbar = ({
 
           {/* Mobile menu dropdown */}
           <div
-            className={`fixed top-0 left-0 z-4 flex w-full flex-col items-center justify-center bg-[rgba(10,10,10,0.8)] backdrop-blur-md transition-all duration-100 ease-in-out ${
+            className={`fixed top-0 left-0 z-4 flex w-full flex-col items-center justify-center bg-[rgba(10,10,10,0.9)] backdrop-blur-2xl transition-all duration-100 ease-in-out ${
               menuOpen
                 ? "pointer-events-auto h-screen translate-y-0 opacity-100"
                 : "pointer-events-none h-0 -translate-y-full opacity-0"

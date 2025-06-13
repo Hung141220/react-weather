@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useRef, useState } from "react";
 import type { Priority } from "@/redux/reducer";
 import { v4 } from "uuid";
-import { todoListSelector, todosRemainingSelector } from "@/redux/selector";
+import { todosRemainingSelector } from "@/redux/selector";
 import todoSlice from "./todoSlice";
 
 export default function TodoList() {
   const dispatch = useDispatch();
-  const todoNameRef = useRef<HTMLInputElement | null>(null); // andtd chưa biết focus sao
+  const todoNameRef = useRef<HTMLInputElement | null>(null);
   const [todoName, setTodoName] = useState("");
   const [priority, setPriority] = useState<Priority>("Medium");
   const [messageApi, contextHolder] = message.useMessage();
@@ -43,18 +43,26 @@ export default function TodoList() {
         name: todoName,
         priority: priority,
         completed: false,
-      })
+      }),
     );
     resetTodoName();
   };
   return (
     <Row style={{ height: "calc(100% - 40px)" }}>
       {contextHolder}
+      {/*  */}
       <Col span={24} style={{ height: "calc(100% - 40px)", overflowY: "auto" }}>
         {todolists.map((todo) => (
-          <Todo name={todo.name} prioriry={todo.priority} key={todo.id} />
+          <Todo
+            name={todo.name}
+            prioriry={todo.priority}
+            key={todo.id}
+            id={todo.id}
+            completed={todo.completed}
+          />
         ))}
       </Col>
+      {/*  */}
       <Col span={24}>
         <Input.Group style={{ display: "flex" }} compact>
           <Input

@@ -7,21 +7,8 @@ const { Title } = Typography;
 function TodolistPage() {
   return (
     <>
-      <div
-        style={{
-          // width: 500,
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "white",
-          padding: 20,
-          boxShadow: "0 0 10px 4px #bfbfbf",
-          borderRadius: 5,
-          height: "90vh",
-        }}
-        className="md:w-[500px] sm:w-[300px] "
-      >
-        <Title style={{ textAlign: "center" }}>TODO APP with REDUX</Title>
+      <div className="mx-auto mt-4 flex h-[90vh] flex-col rounded-xl bg-white p-4 font-medium shadow-[0_0_8px_4px_#bfbfbf] sm:w-[300px] md:w-[500px]">
+        <Title className="text-center">TODO APP with REDUX</Title>
         <Filters />
         <Divider />
         <TodoList />
