@@ -1,31 +1,23 @@
-import { Link } from "react-router-dom";
-
 const MobileMenu = ({
   menuOpen,
   setMenuOpen,
 }: {
   menuOpen: boolean;
-  setMenuOpen: (prev?: any) => void;
+  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <div
-      className={`
-        z-40 flex flex-col
-        w-full
-        bg-[rgba(10,10,10,0.8)]
-        transition-all
-        fixed top-0 left-0 items-center justify-center duration-300 ease-in-out
-        ${menuOpen ? "h-screen opacity-100 pointer-events-auto" : "h-0 opacity-0 pointer-events-none"}
-      `}
+      className={`fixed top-0 left-0 
+        z-40 flex w-full flex-col items-center justify-center bg-[rgba(10,10,10,0.8)] transition-all duration-300 ease-in-out ${
+        menuOpen
+          ? "pointer-events-auto h-screen opacity-100"
+          : "pointer-events-none h-0 opacity-0"
+      } `}
     >
       <button
         onClick={() => setMenuOpen(false)}
         aria-label="Close menu"
-        className="
-          text-white text-3xl
-          cursor-pointer
-          absolute top-4 right-6 focus:outline-none
-        "
+        className="absolute top-4 right-6 cursor-pointer text-3xl text-white focus:outline-none"
       >
         &times;
       </button>
@@ -33,12 +25,7 @@ const MobileMenu = ({
       <a
         href="#home"
         onClick={() => setMenuOpen(false)}
-        className="
-          my-4
-          text-2xl font-semibold text-white
-          transition-transform opacity-100
-          transform duration-300 translate-y-5
-        "
+        className="my-4 translate-y-5 transform text-2xl font-semibold text-white opacity-100 transition-transform duration-300"
       >
         {" "}
         Home{" "}
@@ -46,12 +33,7 @@ const MobileMenu = ({
       <a
         href="#about"
         onClick={() => setMenuOpen(false)}
-        className="
-          my-4
-          text-2xl font-semibold text-white
-          transition-transform opacity-100
-          transform duration-300 translate-y-5
-        "
+        className="my-4 translate-y-5 transform text-2xl font-semibold text-white opacity-100 transition-transform duration-300"
       >
         {" "}
         About{" "}
@@ -59,12 +41,7 @@ const MobileMenu = ({
       <a
         href="#projects"
         onClick={() => setMenuOpen(false)}
-        className="
-          my-4
-          text-2xl font-semibold text-white
-          transition-transform opacity-100
-          transform duration-300 translate-y-5
-        "
+        className="my-4 translate-y-5 transform text-2xl font-semibold text-white opacity-100 transition-transform duration-300"
       >
         {" "}
         Projects{" "}
@@ -72,17 +49,12 @@ const MobileMenu = ({
       <a
         href="#contact"
         onClick={() => setMenuOpen(false)}
-        className="
-          my-4
-          text-2xl font-semibold text-white
-          transition-transform opacity-100
-          transform duration-300 translate-y-5
-        "
+        className="my-4 translate-y-5 transform text-2xl font-semibold text-white opacity-100 transition-transform duration-300"
       >
         {" "}
         Contat{" "}
       </a>
-      <Link
+      {/* <Link
         to="/funny"
         onClick={() => setMenuOpen(false)}
         className="
@@ -94,7 +66,7 @@ const MobileMenu = ({
       >
         {" "}
         Darling{" "}
-      </Link>
+      </Link> */}
     </div>
   );
 };

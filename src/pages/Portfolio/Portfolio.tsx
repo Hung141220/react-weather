@@ -21,25 +21,26 @@ const Portfolio = () => {
     <>
       <div className={clsx(styles.portfolio)}>
         {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
-        <div
-          className={clsx(
-            isLoaded ? "opacity-100" : "opacity-0",
-            "min-h-screen",
-            "text-gray-100",
-            "bg-black",
-            "transition-opacity",
-            "duration-700"
-          )}
-        >
-          <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-          <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        {isLoaded && (
+          <div
+            className={clsx(
+              "min-h-screen",
+              "bg-black",
+              // isLoaded ? "opacity-100" : "opacity-0",
+              // "text-gray-100",
+              // "transition-opacity",
+              // "duration-700"
+            )}
+          >
+            <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-          {/* section */}
-          <Home />
-          <About />
-          <Project />
-          <Contact />
-        </div>
+            {/* section */}
+            <Home />
+            <About />
+            <Project />
+            <Contact />
+          </div>
+        )}
       </div>
     </>
   );

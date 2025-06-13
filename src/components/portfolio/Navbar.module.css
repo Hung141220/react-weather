@@ -1,0 +1,3 @@
+.wraper {
+  @apply z-40 w-full bg-[rgba(10,10,10,0.8)] border-b border-white/10 shadow-lg fixed top-0 backdrop-blur-lg;
+}

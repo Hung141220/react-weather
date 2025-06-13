@@ -6,20 +6,20 @@ const Project = () => {
     <>
       <section
         id="projects"
-        className="min-h-screen flex items-center justify-center py-20"
+        className="flex min-h-screen items-center justify-center py-20"
       >
         <RevealOnScroll>
-          <div className="max-w-5xl mx-auto px-4">
-            <h2 className="text-center text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+          <div className="mx-auto max-w-5xl px-4">
+            <h2 className="mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-center text-3xl font-bold text-transparent">
               Fetured Projects
             </h2>
             {/*  */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-blue-500/30">
+                <h3 className="mb-2 text-xl font-bold">
                   Invest, buy and sell land
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p className="mb-4 text-gray-400">
                   Invest in subdivided land, can buy a land, post land lease
                 </p>
                 <div className="mb-4">
@@ -27,11 +27,11 @@ const Project = () => {
                     (tech, key) => (
                       <span
                         key={key}
-                        className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all"
+                        className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-500 transition-all hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)]"
                       >
                         {tech}
                       </span>
-                    )
+                    ),
                   )}
                 </div>
                 {/* <div className="">
@@ -45,11 +45,11 @@ const Project = () => {
               </div> */}
               </div>
               {/*  */}
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
+              <div className="hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-blue-500/30">
+                <h3 className="mb-2 text-xl font-bold">
                   Scan Qrcode Chùa Bái Đính
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p className="mb-4 text-gray-400">
                   Visitors to Bai Dinh Pagoda can scan a QR code upon arrival,
                   which displays prominent locations within the pagoda and
                   nearby areas. The system also tracks the number of users who
@@ -60,11 +60,11 @@ const Project = () => {
                     (tech, key) => (
                       <span
                         key={key}
-                        className="bg-blue-500/10 text-blue-500 py-1 px-3 rounded-full text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all"
+                        className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-500 transition-all hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)]"
                       >
                         {tech}
                       </span>
-                    )
+                    ),
                   )}
                 </div>
                 {/* <div className="">
@@ -78,9 +78,9 @@ const Project = () => {
               </div> */}
               </div>
               {/*  */}
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
-                <h3 className="text-xl font-bold mb-2">Hotel Software</h3>
-                <p className="text-gray-400 mb-4">
+              <div className="hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-blue-500/30">
+                <h3 className="mb-2 text-xl font-bold">Hotel Software</h3>
+                <p className="mb-4 text-gray-400">
                   The hotel management software enables quick room booking, easy
                   search for available rooms, and accurate time tracking per
                   stay. An optimal solution for efficient and professional hotel
@@ -97,9 +97,7 @@ const Project = () => {
                   ].map((tech, key) => (
                     <span
                       key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 
-                    rounded-full inline-block my-1
-                    text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all"
+                      className="my-1 inline-block rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-500 transition-all hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)]"
                     >
                       {tech}
                     </span>
@@ -116,9 +114,9 @@ const Project = () => {
               </div> */}
               </div>
               {/*  */}
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
-                <h3 className="text-xl font-bold mb-2">Ticket Buy Software</h3>
-                <p className="text-gray-400 mb-4">
+              <div className="hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-blue-500/30">
+                <h3 className="mb-2 text-xl font-bold">Ticket Buy Software</h3>
+                <p className="mb-4 text-gray-400">
                   A smart ticketing system that generates QR codes for each
                   ticket purchase, integrates with MQTT for real-time access
                   control, supports online payments, and automatically issues
@@ -136,9 +134,7 @@ const Project = () => {
                   ].map((tech, key) => (
                     <span
                       key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 
-                    rounded-full inline-block my-1
-                    text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all"
+                      className="my-1 inline-block rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-500 transition-all hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)]"
                     >
                       {tech}
                     </span>
@@ -155,11 +151,11 @@ const Project = () => {
               </div> */}
               </div>
               {/*  */}
-              <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
-                <h3 className="text-xl font-bold mb-2">
+              <div className="hover:shadow[0_2px_8px_rgba(59,130,246,0.2)] rounded-xl border border-white/10 p-6 transition-all hover:-translate-y-1 hover:border-blue-500/30">
+                <h3 className="mb-2 text-xl font-bold">
                   Todolist - Redux Toolkit
                 </h3>
-                <p className="text-gray-400 mb-4">
+                <p className="mb-4 text-gray-400">
                   A small Todo List project using Redux Toolkit to explore the
                   React library
                 </p>
@@ -167,9 +163,7 @@ const Project = () => {
                   {["React", "Redux Toolkit"].map((tech, key) => (
                     <span
                       key={key}
-                      className="bg-blue-500/10 text-blue-500 py-1 px-3 
-                    rounded-full inline-block my-1
-                    text-sm hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all"
+                      className="my-1 inline-block rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-500 transition-all hover:bg-blue-500/20 hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)]"
                     >
                       {tech}
                     </span>
@@ -179,7 +173,7 @@ const Project = () => {
                   <Link
                     to="/todolist"
                     target="_black"
-                    className="text-blue-400 hover:text-blue-300 transition-colors my-4"
+                    className="my-4 text-blue-400 transition-colors hover:text-blue-300"
                   >
                     View Project →
                   </Link>
