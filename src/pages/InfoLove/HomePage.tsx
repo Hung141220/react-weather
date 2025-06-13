@@ -6,6 +6,8 @@ import Slider from "react-slick";
 import img20022025 from "@/assets/img/20022025.png";
 import img22022025 from "@/assets/img/22022025.png";
 import img28022025 from "@/assets/img/28022025.png";
+import imgphototb from "@/assets/img/photoboth.jpg";
+import RevealOnScroll from "@/components/portfolio/sections/RevealOnScroll";
 
 const HomePage = () => {
   const [showMore, setShowMore] = useState(false);
@@ -28,7 +30,7 @@ const HomePage = () => {
             <p
               className={clsx(
                 styles.heroDesc,
-                !showMore && styles.heroDescLine
+                !showMore && styles.heroDescLine,
               )}
             >
               Trong thế giới hối hả và bộn bề, có một câu chuyện tình yêu vẫn
@@ -61,7 +63,7 @@ const HomePage = () => {
             </p>
             <div className="text-right">
               <button
-                className="cursor-pointer bg-blue-200 p-2 rounded font-bold"
+                className="cursor-pointer rounded bg-blue-200 p-2 font-bold"
                 onClick={() => setShowMore(!showMore)}
               >
                 {showMore ? "Thu gọn" : "Xem thêm"}
@@ -77,63 +79,102 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      <section className={clsx(styles.heroSection, "h-full")}>
-        <div>
+      {/*  */}
+      <RevealOnScroll>
+        <section className={clsx(styles.heroSection)}>
           <div>
-            <h2 className={clsx(styles.heroTitle)}>Lộ trình ha: </h2>
+            <div>
+              <h2 className={clsx(styles.heroTitle)}>Lộ trình ha: </h2>
+            </div>
+            <div className="">
+              <Slider {...settings}>
+                <div>
+                  <div className="card">
+                    <div className="mx-auto h-[300px] w-2xs">
+                      <img
+                        className="h-full w-full object-cover"
+                        src={img20022025}
+                        alt="img20022025"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <p>Ngày: 20/02/2025</p>
+                      <p>Hôm đó FDate nè, xinh thật sự</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="card">
+                    <div className="mx-auto h-[300px] w-2xs">
+                      <img
+                        className="h-full w-full object-cover"
+                        src={img22022025}
+                        alt="img22022025"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <p>Ngày: 22/02/2025</p>
+                      <p>Hôm đó mình tặng hoa tuilip nè 🌷</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="card">
+                    <div className="mx-auto h-[300px] w-2xs">
+                      <img
+                        className="h-full w-full object-cover"
+                        src={img28022025}
+                        alt="img28022025"
+                      />
+                    </div>
+                    <div className="text-center">
+                      <p>Ngày: 22/02/2025</p>
+                      <p>Hôm đó mình đi ăn bánh cuốn, tô tranh ^^</p>
+                    </div>
+                  </div>
+                </div>
+              </Slider>
+            </div>
           </div>
-          <div className="">
-            <Slider {...settings}>
-              <div>
-                <div className="card">
-                  <div className="mx-auto w-2xs h-[300px]">
-                    <img
-                      className="h-full w-full object-cover"
-                      src={img20022025}
-                      alt="img20022025"
-                    />
+        </section>
+      </RevealOnScroll>
+      {/*  */}
+      <RevealOnScroll>
+        <section className={clsx(styles.heroSection)}>
+          <div>
+            <div>
+              <h2 className={clsx(styles.heroTitle)}>
+                Đây là thông tin về chúng mình nè:{" "}
+              </h2>
+            </div>
+            <div className={clsx(styles.containerTab)}>
+              <div className={clsx(styles.tabs)}>
+                <button className={clsx(styles.tabButton)}>Boy friend</button>
+                <button className={clsx(styles.tabButton)}>Girl friend</button>
+              </div>
+              <div className={clsx(styles.tabContent)}>
+                <div className={clsx(styles.subTabContentIntro)}>
+                  <div>
+                    <h2>Hello</h2>
+                    <p>Chọn bên trái để biết thêm thông tin nhé ^^</p>
                   </div>
-                  <div className="text-center">
-                    <p>Ngày: 20/02/2025</p>
-                    <p>Hôm đó FDate nè, xinh thật sự</p>
+                  <div className={clsx(styles.subTabContentIntroImg)}>
+                    <img src={imgphototb} alt="imgphototb" />
                   </div>
                 </div>
-              </div>
-              <div>
-                <div className="card">
-                  <div className="mx-auto w-2xs h-[300px]">
-                    <img
-                      className="h-full w-full object-cover"
-                      src={img22022025}
-                      alt="img22022025"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p>Ngày: 22/02/2025</p>
-                    <p>Hôm đó mình tặng hoa tuilip nè 🌷</p>
-                  </div>
+                <div className={clsx(styles.subTabContent)}>
+                  <h2>Boy friend</h2>
+                  <p>Nội dung liên quan tới Boy friend...</p>
+                </div>
+                <div className={clsx(styles.subTabContent)}>
+                  <h2>Girl friend</h2>
+                  <p>Nội dung liên quan tới Girl friend...</p>
                 </div>
               </div>
-              <div>
-                <div className="card">
-                  <div className="mx-auto w-2xs h-[300px]">
-                    <img
-                      className="h-full w-full object-cover"
-                      src={img28022025}
-                      alt="img28022025"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p>Ngày: 22/02/2025</p>
-                    <p>Hôm đó mình đi ăn bánh cuốn, tô tranh ^^</p>
-                  </div>
-                </div>
-              </div>
-            </Slider>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </RevealOnScroll>
     </>
   );
 };

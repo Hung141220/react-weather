@@ -38,8 +38,7 @@ body {
   height: 100vh;
 }
 
-
-
+/* phục vụ ReavealOnScroll */
 .reveal {
   opacity: 0;
   transform: translateY(20px);

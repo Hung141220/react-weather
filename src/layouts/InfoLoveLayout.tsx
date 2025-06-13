@@ -12,7 +12,7 @@ function InfoLoveLayout() {
         <Outlet />
       </main>
 
-      {/* Scroll to top button */}
+      <ScrollToTopButton />
       {/* footer */}
     </>
   );

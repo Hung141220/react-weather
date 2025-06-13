@@ -10,11 +10,11 @@ const RevealOnScroll = ({ children }: { children: React.ReactNode }) => {
           divRef.current?.classList.add("visible");
         }
       },
-      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
     );
     if (divRef.current) observer.observe(divRef.current);
     return () => observer.disconnect();
-  });
+  }, []);
 
   return (
     <div ref={divRef} className="reveal">

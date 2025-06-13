@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({
   menuOpen,
@@ -53,6 +54,12 @@ const Navbar = ({
                 {aLink}
               </a>
             ))}
+            <Link
+              to={"info-love"}
+              className="text-gray-300 capitalize transition-colors hover:text-white"
+            >
+              Info Love
+            </Link>
           </div>
 
           {/* Mobile menu dropdown */}
@@ -73,7 +80,7 @@ const Navbar = ({
             {["home", "about", "projects", "contact"].map((aLink, key) => (
               <a
                 key={key}
-                href={`#${aLink}`}
+                to={`#${aLink}`}
                 onClick={() => setMenuOpen(false)}
                 className={clsx(
                   "my-4 text-2xl font-semibold capitalize transition-colors duration-200",

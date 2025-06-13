@@ -1,6 +1,6 @@
 .heroSection {
- 
   min-height: 100vh;
+  height: 100vh;
   padding: 80px 32px 0;
 }
 .heroContent {
@@ -27,7 +27,7 @@
 .heroSubTitle {
   font-size: var(--infolove-text-n);
   font-weight: 600;
-   text-indent: 2em;
+  text-indent: 2em;
 }
 .heroDesc {
   text-align: justify;
@@ -46,4 +46,48 @@
 .heroImg {
   object-fit: cover;
   border-radius: 10%;
+}
+
+/*  */
+.containerTab {
+  margin-top: 4px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.tabs {
+  background: #f5f5f5;
+  /* padding: 1rem; */
+  border-right: 1px solid #ddd;
+}
+.tabs > .tabActive {
+  border-bottom: none;
+}
+.tabButton {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: right;
+  font-weight: 500;
+}
+.tabActive {
+  border-right: none;
+}
+.tabContent {
+  padding: 1rem;
+  background: #eee;
+}
+.subTabContentIntro {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+}
+.subTabContentIntroImg img {
+  width: 100%;
+}
+.subTabContent:not(.contentActive) {
+  display: none;
 }

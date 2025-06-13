@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { isAuthenticated: false, error: "" };
+const initialState = { isAuthenticated: true, error: "" };
 const funnySlice = createSlice({
   name: "funny",
   initialState,
