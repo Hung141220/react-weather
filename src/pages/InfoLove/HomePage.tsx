@@ -8,15 +8,47 @@ import img22022025 from "@/assets/img/22022025.png";
 import img28022025 from "@/assets/img/28022025.png";
 import imgphototb from "@/assets/img/photoboth.jpg";
 import RevealOnScroll from "@/components/portfolio/sections/RevealOnScroll";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const [showMore, setShowMore] = useState(false);
+  const [tabChose, setTabChose] = useState("");
+  const sliders = useSelector((state) => state.infoLove.sliders);
+
+  const handleChoseTab = (tab: string) => {
+    switch (tab) {
+      case "boy":
+        setTabChose(tab);
+        return;
+      case "girl":
+        setTabChose(tab);
+        return;
+
+      default:
+        return;
+    }
+  };
   const settings = {
-    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
+    arrows: false,
+    dots: true,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // nhỏ hơn 1024px (tablet)
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640, // nhỏ hơn 640px (mobile)
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <>
@@ -86,53 +118,27 @@ const HomePage = () => {
             <div>
               <h2 className={clsx(styles.heroTitle)}>Lộ trình ha: </h2>
             </div>
-            <div className="">
+            <div className="mt-4">
               <Slider {...settings}>
-                <div>
-                  <div className="card">
-                    <div className="mx-auto h-[300px] w-2xs">
+                {sliders.map((item, key) => (
+                  <div key={key}>
+                    <div className="group relative mx-auto h-[500px] w-xs overflow-hidden rounded-lg">
                       <img
-                        className="h-full w-full object-cover"
-                        src={img20022025}
-                        alt="img20022025"
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        src={item.img}
+                        alt="img"
                       />
-                    </div>
-                    <div className="text-center">
-                      <p>Ngày: 20/02/2025</p>
-                      <p>Hôm đó FDate nè, xinh thật sự</p>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 px-4 text-center leading-6 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                        <h4 className="text-md bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] bg-clip-text font-mono font-bold text-transparent">
+                          {item.title}
+                        </h4>
+                        <p className="text-md bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] bg-clip-text font-mono font-bold text-transparent">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <div className="card">
-                    <div className="mx-auto h-[300px] w-2xs">
-                      <img
-                        className="h-full w-full object-cover"
-                        src={img22022025}
-                        alt="img22022025"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <p>Ngày: 22/02/2025</p>
-                      <p>Hôm đó mình tặng hoa tuilip nè 🌷</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div className="card">
-                    <div className="mx-auto h-[300px] w-2xs">
-                      <img
-                        className="h-full w-full object-cover"
-                        src={img28022025}
-                        alt="img28022025"
-                      />
-                    </div>
-                    <div className="text-center">
-                      <p>Ngày: 22/02/2025</p>
-                      <p>Hôm đó mình đi ăn bánh cuốn, tô tranh ^^</p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </Slider>
             </div>
           </div>
@@ -141,7 +147,7 @@ const HomePage = () => {
       {/*  */}
       <RevealOnScroll>
         <section className={clsx(styles.heroSection)}>
-          <div>
+          <div className="">
             <div>
               <h2 className={clsx(styles.heroTitle)}>
                 Đây là thông tin về chúng mình nè:{" "}
@@ -149,11 +155,33 @@ const HomePage = () => {
             </div>
             <div className={clsx(styles.containerTab)}>
               <div className={clsx(styles.tabs)}>
-                <button className={clsx(styles.tabButton)}>Boy friend</button>
-                <button className={clsx(styles.tabButton)}>Girl friend</button>
+                <button
+                  className={clsx(styles.tabButton, "border-t-0", {
+                    [styles.tabActive]: tabChose === "boy",
+                  })}
+                  onClick={() => handleChoseTab("boy")}
+                >
+                  Boy friend
+                </button>
+                <button
+                  className={clsx(styles.tabButton, {
+                    [styles.tabActive]: tabChose === "girl",
+                  })}
+                  onClick={() => handleChoseTab("girl")}
+                >
+                  Girl friend
+                </button>
               </div>
-              <div className={clsx(styles.tabContent)}>
-                <div className={clsx(styles.subTabContentIntro)}>
+              <div
+                className={clsx(styles.tabContent, "h-[400px]", {
+                  "bg-white": tabChose,
+                })}
+              >
+                <div
+                  className={clsx(styles.subTabContentIntro, {
+                    [styles.subTabContentIntroHidden]: tabChose,
+                  })}
+                >
                   <div>
                     <h2>Hello</h2>
                     <p>Chọn bên trái để biết thêm thông tin nhé ^^</p>
@@ -162,13 +190,31 @@ const HomePage = () => {
                     <img src={imgphototb} alt="imgphototb" />
                   </div>
                 </div>
-                <div className={clsx(styles.subTabContent)}>
+                <div
+                  className={clsx(styles.subTabContent, {
+                    [styles.subTabContentActive]: tabChose === "boy",
+                  })}
+                >
                   <h2>Boy friend</h2>
-                  <p>Nội dung liên quan tới Boy friend...</p>
+                  <ul className="list-disc pl-5">
+                    <li>
+                      <strong>Lê Mạnh Hùng</strong>
+                    </li>
+                    <li>14/12/2000 - Nhân Mã</li>
+                  </ul>
                 </div>
-                <div className={clsx(styles.subTabContent)}>
+                <div
+                  className={clsx(styles.subTabContent, {
+                    [styles.subTabContentActive]: tabChose === "girl",
+                  })}
+                >
                   <h2>Girl friend</h2>
-                  <p>Nội dung liên quan tới Girl friend...</p>
+                  <ul className="list-disc pl-5">
+                    <li>
+                      <strong>Bùi Thị Ngọc Lan</strong>
+                    </li>
+                    <li>30/9/2004 - Thiên bình</li>
+                  </ul>
                 </div>
               </div>
             </div>

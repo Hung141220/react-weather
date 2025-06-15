@@ -1,6 +1,6 @@
 .heroSection {
   min-height: 100vh;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 80px 32px 0;
 }
 .heroContent {
@@ -59,7 +59,7 @@
 .tabs {
   background: #f5f5f5;
   /* padding: 1rem; */
-  border-right: 1px solid #ddd;
+  /* border-right: 1px solid #ddd; */
 }
 .tabs > .tabActive {
   border-bottom: none;
@@ -79,15 +79,22 @@
 }
 .tabContent {
   padding: 1rem;
-  background: #eee;
+  background: #fff;
 }
 .subTabContentIntro {
   display: grid;
   grid-template-columns: 1fr 200px;
 }
+.subTabContentIntroHidden {
+  display: none;
+}
 .subTabContentIntroImg img {
+  height: 80%;
   width: 100%;
 }
-.subTabContent:not(.contentActive) {
+.subTabContent {
   display: none;
+}
+.subTabContentActive {
+  display: block;
 }

@@ -7,7 +7,7 @@ const HeaderComponent = () => {
       <header className={clsx(styles.header)}>
         <nav className={clsx(styles.navbar)}>
           <a href="#" className={clsx(styles.navbarLink)}>
-            <h2 className={clsx(styles.logoText)}>Darling 😁</h2>
+            <h2 className={clsx(styles.logoText)}>Darling 🌷</h2>
           </a>
 
           <div className={clsx(styles.navMenu)}>

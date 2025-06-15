@@ -28,7 +28,10 @@
 .logoText {
   font-weight: 500;
   font-size: 24px;
-  text-shadow: -4px 2px 4px white;
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to right, #a18cd1, #fbc2eb);
+  background-clip: text;
+  color: transparent;
 }
 
 .navMenu {
@@ -49,7 +52,7 @@
 
 .navLink:hover {
   transform: translateY(-4px);
-  background: var(--infolove-gray-color);
+  /* background: var(--infolove-gray-color); */
 }
 .navLingHeart {
   display: inline-block;
@@ -58,8 +61,7 @@
 
 .navbar,
 .navMenu,
-.navLink,
-.logoText {
+.navLink {
   color: white;
 }
 
