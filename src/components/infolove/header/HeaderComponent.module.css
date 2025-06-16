@@ -33,6 +33,15 @@
   background-clip: text;
   color: transparent;
 }
+.logoText,
+.navLink {
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(to right, #a18cd1, #fbc2eb);
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+  
+}
 
 .navMenu {
   display: flex;
@@ -60,8 +69,7 @@
 }
 
 .navbar,
-.navMenu,
-.navLink {
+.navMenu {
   color: white;
 }
 
