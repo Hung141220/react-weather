@@ -54,12 +54,12 @@ const Navbar = ({
                 {aLink}
               </a>
             ))}
-            <Link
+            {/* <Link
               to={"info-love"}
               className="text-gray-300 capitalize transition-colors hover:text-white"
             >
               Info Love
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile menu dropdown */}
@@ -80,7 +80,7 @@ const Navbar = ({
             {["home", "about", "projects", "contact"].map((aLink, key) => (
               <a
                 key={key}
-                to={`#${aLink}`}
+                // to={`#${aLink}`}
                 onClick={() => setMenuOpen(false)}
                 className={clsx(
                   "my-4 text-2xl font-semibold capitalize transition-colors duration-200",

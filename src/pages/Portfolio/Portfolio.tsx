@@ -39,6 +39,15 @@ const Portfolio = () => {
             <About />
             <Project />
             <Contact />
+
+            <footer className="w-full border-t border-white/10 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg">
+              <div className="m-auto max-w-5xl px-4">
+                <div className="flex h-16 items-center justify-between">
+                  <i>Backend Developer</i>
+                  <i>0986624798 - manhhung141220@gmail.com</i>
+                </div>
+              </div>
+            </footer>
           </div>
         )}
       </div>

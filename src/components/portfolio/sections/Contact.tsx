@@ -93,7 +93,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="hover:shadow[0_0_15px_rgba(59,130,246,0.4)] relative w-full overflow-hidden rounded bg-blue-500 px-6 py-3 font-medium text-white transition hover:-translate-y-0.5"
+              className="hover:shadow[0_0_15px_rgba(59,130,246,0.4)] relative w-full cursor-pointer overflow-hidden rounded bg-blue-500 px-6 py-3 font-medium text-white transition hover:-translate-y-0.5"
             >
               Send message
             </button>
