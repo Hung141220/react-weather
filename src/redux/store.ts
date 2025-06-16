@@ -1,6 +1,7 @@
 import funnySlice from "@/components/funny/funnySlice";
 import filterSlice from "@/components/todolists/Filter/filterSlice";
 import todoSlice from "@/components/todolists/ListTodo/todoSlice";
+import { authReducer } from "@/slices/authSlice";
 import infoLove from "@/slices/infoLoveSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
@@ -10,6 +11,9 @@ const store = configureStore({
     todoList: todoSlice.reducer,
     funny: funnySlice.reducer,
     infoLove: infoLove.reducer,
+    auth: authReducer,
   },
 });
 export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
