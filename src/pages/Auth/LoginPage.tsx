@@ -49,6 +49,7 @@ const LoginPage: React.FC = () => {
       dispatch(funnySlice.actions.handleAuthenticated());
     } catch (error) {
       console.error("Lỗi đăng nhập:", error.message);
+      messageApi.error(error.message);
     }
   };
 
