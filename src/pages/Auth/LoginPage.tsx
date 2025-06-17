@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "@/services/firebase";
-import { selectLoading, setLoading } from "@/redux/slices/authSlice";
+import { selectLoading, setLoading, setUser } from "@/redux/slices/authSlice";
 import { useMessageApi } from "@/hooks/useMessageContext";
 import bgImage from "@/assets/bg/star.jpg";
 import {
@@ -17,9 +17,11 @@ import {
   LockFilled,
   UserOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
   const [tabForm, setTabForm] = useState(1);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const messageApi = useMessageApi();
   const [form, setForm] = useState({
@@ -54,7 +56,13 @@ const LoginPage: React.FC = () => {
   const handleLogin = async () => {
     dispatch(setLoading(true));
     try {
-      await signInWithEmailAndPassword(auth, form.username, form.password);
+      const { user } = await signInWithEmailAndPassword(
+        auth,
+        form.username,
+        form.password,
+      );
+      dispatch(setUser({ uid: user.uid, email: user.email }));
+      navigate("/info-love", { replace: true });
     } catch (error) {
       const err = error as { message?: string };
       console.error("Lỗi đăng nhập:", err.message);
