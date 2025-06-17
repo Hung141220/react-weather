@@ -5,7 +5,7 @@ import "./FunnyPage.css";
 import { dataImage } from "@/utils/dataImage";
 import { message } from "antd";
 import { useEffect } from "react";
-import RainText from "../RainText";
+import RainText from "../shared/RainText";
 
 function FunnyPage() {
   const [messageApi, contextHolder] = message.useMessage();

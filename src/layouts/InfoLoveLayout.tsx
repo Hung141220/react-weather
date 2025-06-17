@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import HeaderComponent from "@/components/infolove/header/HeaderComponent";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 import GlobalStyles from "@/components/infolove/GlobalStyles";
 
 function InfoLoveLayout() {

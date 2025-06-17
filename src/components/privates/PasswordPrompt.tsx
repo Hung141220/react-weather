@@ -3,7 +3,7 @@ import styles from "./PasswordPrompt.module.css";
 import clsx from "clsx";
 import { useDispatch, useSelector } from "react-redux";
 import { message } from "antd";
-import funnySlice from "../funny/funnySlice";
+import funnySlice from "../../redux/slices/funnySlice";
 
 const NUMPAD = [
   [1, 2, 3],

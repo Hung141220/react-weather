@@ -1,5 +1,5 @@
-import filterSlice from "@/components/todolists/Filter/filterSlice";
-import todoSlice from "@/components/todolists/ListTodo/todoSlice";
+import filterSlice from "@/redux/slices/filterSlice";
+import todoSlice from "@/redux/slices/todoSlice";
 
 export type Priority = "Low" | "Medium" | "High";
 export interface Todo {

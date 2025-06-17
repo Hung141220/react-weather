@@ -3,44 +3,78 @@ import Weather from "@/components/weather/Weather";
 import DarlingPage from "@/components/darling/DarlingPage";
 import TodolistPage from "@/pages/TodolistPage";
 import FunnyPage from "@/components/funny/FunnyPage";
-import PrivateFunny from "@/components/privates/PrivateFunny";
 import Portfolio from "@/pages/Portfolio/Portfolio";
 import InfoLoveLayout from "@/layouts/InfoLoveLayout";
 import HomePage from "@/pages/InfoLove/HomePage";
+import LoginPage from "@/pages/Auth/LoginPage";
+import MainLayout from "@/layouts/MainLayout";
+import AuthGuard from "@/components/guards/AuthGuard";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Portfolio />,
-    index: true,
-  },
-  {
-    path: "weather",
-    element: <Weather />,
-  },
-
-  {
-    path: "todolist",
-    element: <TodolistPage />,
-  },
-  {
-    element: <PrivateFunny />,
+    element: <MainLayout />,
     children: [
       {
-        path: "darling",
-        element: <DarlingPage />,
+        path: "/",
+        element: <Portfolio />,
+        index: true,
+        handle: {
+          title: "PORTFOLIO",
+        },
       },
       {
-        path: "funny",
-        element: <FunnyPage />,
+        path: "weather",
+        element: <Weather />,
+        handle: {
+          title: "Weather",
+        },
       },
       {
-        path: "info-love",
-        element: <InfoLoveLayout />,
+        path: "todolist",
+        element: <TodolistPage />,
+        handle: {
+          title: "Todolist",
+        },
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
+        handle: {
+          title: "Login",
+        },
+      },
+      {
+        element: <AuthGuard />,
         children: [
           {
-            index: true,
-            element: <HomePage />,
+            path: "darling",
+            element: <DarlingPage />,
+            handle: {
+              title: "Darling",
+            },
+          },
+          {
+            path: "funny",
+            element: <FunnyPage />,
+            handle: {
+              title: "Funny",
+            },
+          },
+          {
+            path: "info-love",
+            element: <InfoLoveLayout />,
+            handle: {
+              title: "Info Love",
+            },
+            children: [
+              {
+                index: true,
+                element: <HomePage />,
+                handle: {
+                  title: "Info Love Home",
+                },
+              },
+            ],
           },
         ],
       },

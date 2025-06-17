@@ -5,7 +5,7 @@ import React, { useRef, useState } from "react";
 import type { Priority } from "@/redux/reducer";
 import { v4 } from "uuid";
 import { todosRemainingSelector } from "@/redux/selector";
-import todoSlice from "./todoSlice";
+import todoSlice from "../../../redux/slices/todoSlice";
 
 export default function TodoList() {
   const dispatch = useDispatch();

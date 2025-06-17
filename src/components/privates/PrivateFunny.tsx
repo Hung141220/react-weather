@@ -1,21 +1,16 @@
-import { Outlet } from "react-router-dom";
-import PasswordPrompt from "./PasswordPrompt";
+import { Navigate, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import LoginPage from "@/pages/Auth/LoginPage";
 import type { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/services/firebase";
-import { clearUser, setUser } from "@/slices/authSlice";
+import { clearUser, setUser } from "@/redux/slices/authSlice";
 import { Spin } from "antd";
 
 const PrivateFunny = () => {
-  // const { isAuthenticated } = useSelector<
-  //   { funny: { isAuthenticated: boolean; error: string } },
-  //   { isAuthenticated: boolean; error: string }
-  // >((state) => state.funny);
   const dispatch = useDispatch();
   const { user, loading } = useSelector((state: RootState) => state.auth);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -25,7 +20,7 @@ const PrivateFunny = () => {
       }
     });
     return () => unsubscribe();
-  }, []);
+  }, [dispatch]);
 
   if (loading)
     return (
@@ -35,7 +30,7 @@ const PrivateFunny = () => {
         </Spin>
       </div>
     );
-  return user ? <Outlet /> : <LoginPage />;
+  return user ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default PrivateFunny;

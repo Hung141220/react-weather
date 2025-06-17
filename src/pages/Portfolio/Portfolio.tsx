@@ -7,7 +7,7 @@ import clsx from "clsx";
 import About from "@/components/portfolio/sections/About";
 import Project from "@/components/portfolio/sections/Project";
 import Contact from "@/components/portfolio/sections/Contact";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopButton from "@/components/shared/ScrollToTopButton";
 
 const Portfolio = () => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
