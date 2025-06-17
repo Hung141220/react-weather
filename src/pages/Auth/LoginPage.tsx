@@ -141,25 +141,25 @@ const LoginPage: React.FC = () => {
               <div>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <GoogleSquareFilled />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <FacebookFilled />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <GithubFilled />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <LinkedinFilled />
                 </a>
@@ -222,25 +222,25 @@ const LoginPage: React.FC = () => {
               <div>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <GoogleSquareFilled />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <FacebookFilled />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <GithubFilled />
                 </a>
                 <a
                   href="#"
-                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-50"
+                  className="inline-flex rounded-xl p-2.5 text-2xl hover:text-gray-500"
                 >
                   <LinkedinFilled />
                 </a>
