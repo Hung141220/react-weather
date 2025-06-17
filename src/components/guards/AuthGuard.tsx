@@ -1,7 +1,7 @@
 import { Spin } from "antd";
 import { Navigate, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/services/firebase";
 import {
@@ -13,8 +13,8 @@ import {
 
 const AuthGuard = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
   const user = useSelector(selectUser);
+  const [authChecked, setAuthChecked] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -23,11 +23,12 @@ const AuthGuard = () => {
       } else {
         dispatch(clearUser());
       }
+      setAuthChecked(true); //
     });
     return () => unsubscribe();
-  }, [dispatch]);
+  }, []);
 
-  if (loading)
+  if (!authChecked)
     return (
       <div className="flex h-screen w-screen items-center justify-center">
         <Spin tip="Loading" size="large"></Spin>
