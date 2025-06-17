@@ -1,7 +1,7 @@
 /** @type {import("prettier").Config} */
 export default {
   plugins: ['prettier-plugin-tailwindcss'],
-  printWidth: 120,
+  printWidth: 80,
   singleQuote: true,
   tailwindFunctions: ['clsx', 'classnames', 'cva'],
 };

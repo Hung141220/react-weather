@@ -63,6 +63,7 @@ const HomePage = () => {
               className={clsx(
                 styles.heroDesc,
                 !showMore && styles.heroDescLine,
+                'leading-relaxed'
               )}
             >
               {content}

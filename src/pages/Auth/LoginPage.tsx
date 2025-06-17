@@ -79,14 +79,13 @@ const LoginPage: React.FC = () => {
           backgroundImage: `url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          height: "300px",
         }}
-        className="bg-url flex min-h-screen items-center justify-center"
+        className="bg-url flex min-h-screen items-center justify-center px-2.5"
       >
-        <div className="relative h-[550px] w-3xl overflow-hidden rounded-4xl bg-white shadow-[0_0_30px_rgpa(0,0,0,.2)] backdrop-blur-md">
+        <div className="relative h-[550px] w-3xl overflow-hidden rounded-4xl bg-white shadow-[0_0_30px_rgpa(0,0,0,.2)] backdrop-blur-md max-[650px]:h-[calc(100vh-20px)]">
           {/* login */}
           <div
-            className={`absolute right-0 z-10 flex h-full w-1/2 items-center bg-white p-10 text-center text-gray-400 transition-all delay-500 ease-in-out select-none ${tabForm === 1 && "right-0"} ${tabForm === 2 && "right-1/2"}`}
+            className={`absolute right-0 z-10 flex h-full w-1/2 items-center bg-white p-10 text-center text-gray-400 transition-all delay-500 ease-in-out select-none max-[650px]:right-0 max-[650px]:h-[70%] max-[650px]:w-full ${tabForm === 1 && "right-0 max-[650px]:bottom-0"} ${tabForm === 2 && "right-1/2 max-[650px]:-bottom-[40%]"}`}
           >
             {/* Form */}
             <form action="#" className="w-full">
@@ -169,7 +168,7 @@ const LoginPage: React.FC = () => {
 
           {/* register */}
           <div
-            className={`transtion-all absolute left-0 z-10 flex h-full w-1/2 items-center justify-center bg-white p-10 text-center text-gray-400 duration-300 ease-in-out select-none ${tabForm === 1 && "invisible"} ${tabForm === 2 && "visible"}`}
+            className={`transtion-all absolute left-0 z-10 flex h-full w-1/2 items-center justify-center bg-white p-10 text-center text-gray-400 duration-300 ease-in-out select-none max-[650px]:right-0 max-[650px]:bottom-[30%] max-[650px]:h-[70%] max-[650px]:w-full ${tabForm === 1 && "invisible"} ${tabForm === 2 && "visible"}`}
           >
             {/* Form */}
             <form action="#" className="w-full">
@@ -250,10 +249,10 @@ const LoginPage: React.FC = () => {
 
           {/* toggle box */}
           <div
-            className={`absolute h-full w-full before:absolute before:inset-0 before:-left-[250%] before:z-20 before:w-[300%] before:rounded-[150px] before:bg-green-900 before:transition-all before:duration-[.7s] before:ease-in-out ${tabForm === 2 && "before:left-1/2"}`}
+            className={`absolute h-full w-full before:absolute before:inset-0 before:-left-[250%] before:z-20 before:w-[300%] before:rounded-[150px] before:bg-green-900 before:transition-all before:duration-[.7s] before:ease-in-out max-[650px]:before:-top-[270%] max-[650px]:before:left-0 max-[650px]:before:h-[300%] max-[650px]:before:w-full ${tabForm === 2 && "before:left-1/2 max-[650px]:before:top-[70%] max-[650px]:before:left-0"}`}
           >
             <div
-              className={`absolute z-20 flex h-full w-1/2 flex-col items-center justify-center text-white transition-all delay-300 ease-in-out ${tabForm === 2 && "-left-1/2"} ${tabForm === 1 && "left-0"} `}
+              className={`absolute z-20 flex h-full w-1/2 flex-col items-center justify-center text-white transition-all delay-300 ease-in-out max-[650px]:h-[30%] max-[650px]:w-full ${tabForm === 2 && "-left-1/2 max-[650px]:-top-[30%] max-[650px]:left-0"} ${tabForm === 1 && "left-0 max-[650px]:top-0"} `}
             >
               <h1 className="mb-5 text-3xl font-semibold">Hello, Welcome!</h1>
               <p className="mb-5">Don't have an account ?</p>
@@ -268,7 +267,7 @@ const LoginPage: React.FC = () => {
             </div>
             {/*  */}
             <div
-              className={`absolute z-20 flex h-full w-1/2 flex-col items-center justify-center text-white transition-all delay-300 ease-in-out ${tabForm === 1 && "-right-1/2"} ${tabForm === 2 && "right-0"} `}
+              className={`absolute z-20 flex h-full w-1/2 flex-col items-center justify-center text-white transition-all delay-300 ease-in-out max-[650px]:right-0 max-[650px]:h-[30%] max-[650px]:w-full ${tabForm === 1 && "-right-1/2 max-[650px]:-bottom-[30%]"} ${tabForm === 2 && "right-0 max-[650px]:bottom-0"} `}
             >
               <h1 className="mb-5 text-3xl font-semibold">Welcome Back !</h1>
               <p className="mb-5">Already have an account ?</p>
