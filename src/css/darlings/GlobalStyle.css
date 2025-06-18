@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'UTM Amerika Sans';
+  src: url('@/assets/fonts/UTM_Amerika_Sans.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'UTM LinotypeZapfino KT';
+  src: url('@/assets/fonts/UTM_LinotypeZapfino_KT.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'UVNBachTuyet_I';
+  src: url('@/assets/fonts/UVNBachTuyet_I.TTF') format('truetype');
+}
+
+body {
+  font-family: 'UTM Amerika Sans', serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  /* font-size: ; */
+}
+.font-family-linotypezapfino {
+  font-family: 'UTM LinotypeZapfino KT', serif;
+  font-optical-sizing: auto;
+}
+.font-family-unvbachtuyet {
+  font-family: 'UVNBachTuyet_I', serif;
+  font-optical-sizing: auto;
+}

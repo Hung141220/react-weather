@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <header className={`fixed z-10 w-full bg-gray-900 py-8`}>
+      <header className={`fixed z-10 w-full bg-[#513c18] py-8`}>
         <nav className={`flex items-center justify-between px-2`}>
           <a href="#" className={``}>
             <h2
