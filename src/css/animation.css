@@ -29,10 +29,23 @@
   }
 }
 
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
 .animate-blink {
   animation: blink 0.8s step-end infinite;
 }
 
 .animate-loading-bar {
   animation: loading 0.8s ease infinite;
+}
+.animate-heartbeat {
+  animation: heartbeat 0.6s ease-in-out infinite;
 }
