@@ -57,7 +57,7 @@ const DarlingLayout = () => {
                   {anchorLinks.map((item, key) => (
                     <p
                       key={key}
-                      className="relative text-center text-5xl text-[#9b3139] before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-md before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content"
+                      className="relative text-center text-4xl text-[#9b3139] before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-md before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content"
                     >
                       {item}
                     </p>
