@@ -55,7 +55,7 @@ const DarlingLayout = () => {
                     {item}
                   </p>
                 ))}
-                <div className="grid grid-flow-col justify-end gap-4">
+                <div className="grid grid-flow-col justify-end gap-4 pr-60">
                   <button className="cursor-pointer rounded-full border border-[#9b3139] px-6 py-2 text-[#9b3139] transition-all duration-300 ease-in hover:-translate-y-1 hover:bg-[#9b3131] hover:text-white">
                     Tìm hiểu
                   </button>
