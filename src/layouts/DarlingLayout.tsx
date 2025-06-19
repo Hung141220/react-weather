@@ -39,7 +39,7 @@ const DarlingLayout = () => {
             <RevealOnScroll>
               <section className="space-y-2.5 py-8 text-center">
                 <p className="text-3xl tracking-wide">Mỗi người gặp nhau</p>
-                <p className="font-family-linotypezapfino inline-block rotate-[350deg] text-9xl leading-tight text-[#9b3139] italic">
+                <p className="font-family-linotypezapfino inline-block rotate-[350deg] text-9xl py-2 leading-30 text-[#9b3139] italic">
                   đều được <br />
                   Định Mệnh sắp đặt…
                 </p>
@@ -57,7 +57,7 @@ const DarlingLayout = () => {
                   {anchorLinks.map((item, key) => (
                     <p
                       key={key}
-                      className="relative text-center text-4xl text-[#9b3139] before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-md before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content"
+                      className="relative text-center text-4xl text-[#9b3139] before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-[250px] before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content"
                     >
                       {item}
                     </p>
