@@ -4,7 +4,7 @@ import styles from "@/css/infoloves/HomePage.module.css";
 import { useState } from "react";
 import Slider from "react-slick";
 import imgphototb from "@/assets/img/photoboth.jpg";
-import RevealOnScroll from "@/components/portfolio/sections/RevealOnScroll";
+import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/redux/store";
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RevealOnScroll from "./RevealOnScroll";
+import RevealOnScroll from "../../shared/RevealOnScroll";
 
 const TEXT_INTRO = ["Le Manh Hung", "Backend Developer"];
 const Home = () => {

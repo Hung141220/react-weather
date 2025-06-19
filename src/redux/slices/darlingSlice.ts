@@ -4,7 +4,7 @@ import type { RootState } from '../store';
 const initialState = {
   anchorLinks: [
     'Chuyện Tình Facebook Dating',
-    'Tết Nguyên Đán & Tình Yêu Chơm Nở',
+    'Tết Nguyên Đán & Tình Yêu Chớm Nở',
     'Cuộc Gặp Định Mệnh',
     'Lời Tỏ Tình Chân Thành',
   ],

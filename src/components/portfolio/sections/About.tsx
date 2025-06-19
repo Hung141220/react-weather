@@ -1,4 +1,4 @@
-import RevealOnScroll from "./RevealOnScroll";
+import RevealOnScroll from "../../shared/RevealOnScroll";
 
 const About = () => {
   const backendSkills = ["PHP", "Laravel", "MySql", "Oracle"];

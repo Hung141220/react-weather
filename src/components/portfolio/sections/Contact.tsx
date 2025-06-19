@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RevealOnScroll from "./RevealOnScroll";
+import RevealOnScroll from "../../shared/RevealOnScroll";
 import emailjs from "emailjs-com";
 
 const Contact = () => {

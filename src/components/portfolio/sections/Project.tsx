@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RevealOnScroll from "./RevealOnScroll";
+import RevealOnScroll from "../../shared/RevealOnScroll";
 
 const Project = () => {
   return (
