@@ -1,9 +1,10 @@
-import funnySlice from "@/redux/slices/funnySlice";
-import filterSlice from "@/redux/slices/filterSlice";
-import todoSlice from "@/redux/slices/todoSlice";
-import authReducer from "@/redux/slices/authSlice";
-import infoLove from "@/redux/slices/infoLoveSlice";
-import { configureStore } from "@reduxjs/toolkit";
+import funnySlice from '@/redux/slices/funnySlice';
+import filterSlice from '@/redux/slices/filterSlice';
+import todoSlice from '@/redux/slices/todoSlice';
+import authReducer from '@/redux/slices/authSlice';
+import darlingReducer from '@/redux/slices/darlingSlice';
+import infoLove from '@/redux/slices/infoLoveSlice';
+import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     funny: funnySlice.reducer,
     infoLove: infoLove.reducer,
     auth: authReducer,
+    darling: darlingReducer,
   },
 });
 export default store;

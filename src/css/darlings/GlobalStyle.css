@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'UTM Amerika Sans', serif;
+  font-family: 'UTM Amerika Sans', serif !important;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
