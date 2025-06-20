@@ -229,31 +229,33 @@ const DarlingLayout = () => {
                 </div>
               </section>
             </RevealOnScroll>
-            <section className="py-8">
-              <div className="">
-                <Slider {...settings}>
-                  {sliders.map((item, key) => (
-                    <div key={key}>
-                      <div className="group relative mx-auto h-[300px] w-xs rounded-lg">
-                        <img
-                          className="h-full w-full object-cover transition-transform duration-300"
-                          src={item.img}
-                          alt="img"
-                        />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 px-4 text-center leading-6 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-                          <h4 className="text-md bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] bg-clip-text font-mono font-bold text-transparent">
-                            {item.title}
-                          </h4>
-                          <p className="text-md bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] bg-clip-text font-mono font-bold text-transparent">
-                            {item.desc}
-                          </p>
+            <RevealOnScroll>
+              <section className="py-8">
+                <div className="">
+                  <Slider {...settings}>
+                    {sliders.map((item, key) => (
+                      <div key={key}>
+                        <div className="group relative mx-auto h-[300px] w-xs rounded-lg">
+                          <img
+                            className="h-full w-full object-cover transition-transform duration-300"
+                            src={item.img}
+                            alt="img"
+                          />
+                          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 px-4 text-center leading-6 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                            <h4 className="text-md bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] bg-clip-text font-mono font-bold text-transparent">
+                              {item.title}
+                            </h4>
+                            <p className="text-md bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb] bg-clip-text font-mono font-bold text-transparent">
+                              {item.desc}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            </section>
+                    ))}
+                  </Slider>
+                </div>
+              </section>
+            </RevealOnScroll>
           </main>
 
           {/* Footer */}
