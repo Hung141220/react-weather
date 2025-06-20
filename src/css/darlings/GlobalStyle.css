@@ -12,6 +12,8 @@
   font-family: 'UVNBachTuyet_I';
   src: url('@/assets/fonts/UVNBachTuyet_I.TTF') format('truetype');
 }
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
 
 body {
   font-family: 'UTM Amerika Sans', serif !important;
@@ -27,4 +29,10 @@ body {
 .font-family-unvbachtuyet {
   font-family: 'UVNBachTuyet_I', serif;
   font-optical-sizing: auto;
+}
+.text-color-darling {
+  color: #9b3139;
+}
+.bg-color-darling {
+  background-color: #9b3139;
 }

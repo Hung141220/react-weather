@@ -1,24 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
-import img20022025 from "@/assets/img/20022025.png";
-import img22022025 from "@/assets/img/22022025.png";
-import img28022025 from "@/assets/img/28022025.png";
+import { createSlice } from '@reduxjs/toolkit';
+import img20022025 from '@/assets/img/20022025.png';
+import img22022025 from '@/assets/img/22022025.png';
+import img28022025 from '@/assets/img/28022025.png';
+import img0607 from '@/assets/img/0607.jpg';
+import img0405 from '@/assets/img/0405.jpg';
 
 const initialState = {
   sliders: [
     {
       img: img20022025,
-      title: "Ngày: 20/02/2025",
-      desc: "Hôm đó FDate nè, xinh thật sự",
+      title: 'Ngày: 20/02/2025',
+      desc: 'Hôm đó FDate nè, xinh thật sự',
     },
     {
       img: img22022025,
-      title: "Ngày: 22/02/2025",
-      desc: "Hôm đó mình tặng hoa tuilip nè 🌷",
+      title: 'Ngày: 22/02/2025',
+      desc: 'Hôm đó mình tặng hoa tuilip nè 🌷',
     },
     {
       img: img28022025,
-      title: "Ngày: 28/02/2025",
-      desc: "Hôm đó mình đi ăn bánh cuốn, tô tranh ^^",
+      title: 'Ngày: 28/02/2025',
+      desc: 'Hôm đó mình đi ăn bánh cuốn, tô tranh ^^',
+    },
+    {
+      img: img0405,
+      title: 'Ngày: 04/05/2025',
+      desc: 'Cà hê tây hồ nhemm',
+    },
+    {
+      img: img0607,
+      title: 'Ngày: 06/07/2025',
+      desc: 'Hôm đó kẹp cổ tuiii',
     },
   ],
   content: `Chuyện Tình Facebook Dating Ngày 20 tháng 01 năm 2025, Hùng và Lan
@@ -76,7 +88,7 @@ const initialState = {
               Hùng và Lan chính thức bắt đầu.`,
 };
 const infoLove = createSlice({
-  name: "infoLove",
+  name: 'infoLove',
   initialState,
   reducers: {},
 });
