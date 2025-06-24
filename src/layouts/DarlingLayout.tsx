@@ -10,6 +10,8 @@ import Slider from 'react-slick';
 import type { RootState } from '@/redux/store';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import IMG_6916 from '@/assets/img/IMG_6916.jpg';
+import IMG_6660 from '@/assets/img/IMG_6660.png';
 
 const DarlingLayout = () => {
   const anchorLinks = useSelector(selectAnchorLinks);
@@ -90,7 +92,7 @@ const DarlingLayout = () => {
                     <a
                       href={`#anchor${key}`}
                       key={key}
-                      className="relative block text-center text-4xl text-[#9b3139] transition-all duration-200 ease-in-out before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-[250px] before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content hover:animate-bounce"
+                      className="relative block text-center text-4xl text-[#9b3139] transition-all duration-200 ease-in-out before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-[250px] before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content"
                     >
                       {item}
                     </a>
@@ -256,6 +258,49 @@ const DarlingLayout = () => {
                 </div>
               </section>
             </RevealOnScroll>
+            <RevealOnScroll>
+              <section className="py-8">
+                <div>
+                  <p className="relative mb-8 block text-center text-4xl text-[#9b3139] transition-all duration-200 ease-in-out before:absolute before:-bottom-4 before:left-1/2 before:h-1 before:w-[250px] before:-translate-x-1/2 before:bg-[#9b3139] before:contain-content">
+                    Thông tin cặp đôi
+                  </p>
+                  <div>
+                    <div className="flex flex-col items-center gap-8">
+                      <div className="flex items-center justify-around gap-10">
+                        <div className="">
+                          <div className="mx-auto mb-4 h-[500px] w-md border border-neutral-300 bg-[#4b3200] p-4 pt-3 pb-10 shadow-lg">
+                            <img
+                              src={IMG_6916}
+                              alt="picutreflower"
+                              className="w-full object-cover h-full"
+                            />
+                          </div>
+                          <div className="text-right">
+                            <button className="cursor-pointer rounded-full border border-[#9b3139] px-6 py-2 text-2xl font-medium text-[#9b3139] transition-all duration-300 ease-in hover:-translate-y-1 hover:bg-[#9b3131] hover:text-white">
+                              1314
+                            </button>
+                          </div>
+                        </div>
+                        <div className="">
+                          <div className="mx-auto mb-4 h-[500px] w-md border border-neutral-300 bg-[#4b3200] p-4 pt-3 pb-10 shadow-lg">
+                            <img
+                              src={IMG_6660}
+                              alt="picutreflower"
+                              className="w-full object-cover h-full"
+                            />
+                          </div>
+                          <div className="text-left">
+                            <button className="cursor-pointer rounded-full border border-[#9b3139] px-6 py-2 text-2xl font-medium text-[#9b3139] transition-all duration-300 ease-in hover:-translate-y-1 hover:bg-[#9b3131] hover:text-white">
+                              darling
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </RevealOnScroll>
           </main>
 
           {/* Footer */}
@@ -268,7 +313,7 @@ const DarlingLayout = () => {
               <div className="mt-4 flex justify-center gap-3 text-sm text-[#9b3139] opacity-80">
                 <span>© {new Date().getFullYear()} Hùng & Lan</span>
                 <span>·</span>
-                <span>Yêu nhau đến già nhaaaa</span>
+                <span>Yêu nhau đến già nha ^^</span>
               </div>
 
               {/* Line decorative heart */}
